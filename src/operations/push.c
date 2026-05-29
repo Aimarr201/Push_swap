@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 17:43:19 by amendibi          #+#    #+#             */
-/*   Updated: 2026/05/28 20:59:47 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/05/29 16:34:23 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	pb(t_stack *backpack)
 		i++;
 	}
 	backpack->len_a--;
-	write(1, "pb\n", 3);
+	ft_putstr("pb\n", 1);
 }
 
 void	pa(t_stack *backpack)
@@ -57,5 +57,5 @@ void	pa(t_stack *backpack)
 		i++;
 	}
 	backpack->len_b--;
-	write(1, "pa\n", 3);
+	ft_putstr("pa\n", 1);
 }
