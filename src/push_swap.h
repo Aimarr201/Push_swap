@@ -63,14 +63,29 @@ void	ra(t_stack *backpack);
 void	rb(t_stack *backpack);
 void	rr(t_stack *backpack);
 
+/* rev_rotate.c */
+void	rra(t_stack *backpack);
+void	rrb(t_stack *backpack);
+void	rrr(t_stack *backpack);
+
 /* utils.c */
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strcmp(const char *s1, const char *s2);
 void	ft_putstr(char *str);
 void	ft_isnum(char *str);
-int	ft_atoi(const char *str);
+long	ft_atoi(const char *str);
+void	ft_has_duplicates(t_stack *backpack);
 
 /* free.c */
 void	ft_free_arrays(t_stack *backpack);
 
+/* init.c */
+void	init_backpack(t_stack *backpack, int size, int i, int argc, char **argv);
+
+/* disorder.c */
+float	compute_disorder(t_stack *backpack, t_stats *totebag);
+
+/* push_swap.c */
+int		ft_validate_flag(char *flag);
+void	parse_args(int argc, char *argv[], t_stack *backpack, t_stats *totebag);
 
 #endif
