@@ -3,12 +3,10 @@
 
 void	init_back(t_stack *backpack, int size, int i, int argc, char **argv)
 {
-	if (!backpack)
-		ft_error();
 	backpack->stack_a = malloc(sizeof(int) * size);
 	backpack->stack_b = malloc(sizeof(int) * size);
 	if (!backpack->stack_a || !backpack->stack_b)
-		ft_error_free(&backpack);
+		ft_error_free(backpack);
 	backpack->len_a = 0;
 	backpack->len_b = 0;
 	while (i < argc)
@@ -17,7 +15,7 @@ void	init_back(t_stack *backpack, int size, int i, int argc, char **argv)
 		backpack->len_a++;
 		i++;
 	}
-	ft_has_duplicates(&backpack);
+	ft_has_duplicates(backpack);
 }
 
 void	init_totebag(t_stats *totebag)
@@ -34,7 +32,7 @@ void	init_totebag(t_stats *totebag)
 	totebag->rrb = 0;
 	totebag->rrr = 0;
 	totebag->total_ops = 0;
-	totebag->disorder = 0;
+	totebag->disorder = 0.0f;
 	totebag->bench_flag = 0;
 	totebag->algorithm_flag = 0;
 }

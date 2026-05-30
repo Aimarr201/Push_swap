@@ -46,7 +46,7 @@ void	parse_args(int argc, char *argv[], t_stack *backpack, t_stats *totebag)
 
 	if (argc < 2)
 		ft_error();
-	init_totebag(&totebag);
+	init_totebag(totebag);
 	start = 1;
 	while (argv[start][0] == '-' && argv[start][1] == '-')
 	{
@@ -78,13 +78,13 @@ int	main(int argc, char *argv[])
 	if (totebag->algorithm_flag)
 	{
 		if (totebag->algorithm_flag == 1)
-			algorithm_simple(&backpack);
+			algorithm_simple(backpack);
 		else if (totebag->algorithm_flag == 2)
-			algorithm_medium(&backpack);
+			algorithm_medium(backpack);
 		else if (totebag->algorithm_flag == 3)
-			algorithm_complex(&backpack);
+			algorithm_complex(backpack);
 	}
 	else
-		dispatch_adaptative(&backpack);
-	ft_error_free(&backpack); // ns si es colada
+		dispatch_adaptative(backpack);
+	ft_free_back_and_tote(backpack, totebag);
 }
