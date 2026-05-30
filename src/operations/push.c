@@ -6,13 +6,13 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 17:43:19 by amendibi          #+#    #+#             */
-/*   Updated: 2026/05/29 16:34:23 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/05/30 18:55:23 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pb(t_stack *backpack)
+void	pb(t_stack *backpack, )
 {
 	int	i;
 
@@ -33,7 +33,7 @@ void	pb(t_stack *backpack)
 		i++;
 	}
 	backpack->len_a--;
-	ft_putstr("pb\n", 1);
+	ft_putstr("pb\n");
 }
 
 void	pa(t_stack *backpack)
@@ -57,5 +57,5 @@ void	pa(t_stack *backpack)
 		i++;
 	}
 	backpack->len_b--;
-	ft_putstr("pa\n", 1);
+	ft_putstr("pa\n");
 }

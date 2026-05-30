@@ -6,13 +6,13 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 17:21:39 by luciamar          #+#    #+#             */
-/*   Updated: 2026/05/29 19:44:53 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/05/30 19:55:28 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack *backpack)
+void	ra(t_stack *backpack, t_stats *totebag)
 {
 	int	tmp;
 	int	i;
@@ -30,7 +30,7 @@ void	ra(t_stack *backpack)
 	ft_putstr("ra\n");
 }
 
-void	rb(t_stack *backpack)
+void	rb(t_stack *backpack, t_stats *totebag)
 {
 	int	tmp;
 	int	i;
@@ -48,7 +48,7 @@ void	rb(t_stack *backpack)
 	ft_putstr("rb\n");
 }
 
-void	rr(t_stack *backpack)
+void	rr(t_stack *backpack, t_stats *totebag)
 {
 	int	tmp;
 	int	i;
@@ -59,7 +59,6 @@ void	rr(t_stack *backpack)
 		i = -1;
 		while (++i < backpack->len_a - 1)
 			backpack->stack_a[i] = backpack->stack_a[i + 1];
-			i++;
 		backpack->stack_a[backpack->len_a - 1] = tmp;
 	}
 	if (backpack->len_b >= 2)
@@ -68,7 +67,6 @@ void	rr(t_stack *backpack)
 		i = -1;
 		while (++i < backpack->len_b - 1)
 			backpack->stack_b[i] = backpack->stack_b[i + 1];
-			i++;
 		backpack->stack_b[backpack->len_b - 1] = tmp;
 	}
 	ft_putstr("rr\n");
