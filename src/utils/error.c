@@ -19,8 +19,6 @@ void	ft_error(void)
 }
 void	ft_error_free(t_stack *backpack)
 {
-	free(backpack->stack_a);
-	free(backpack->stack_b);
+	ft_free_arrays(&backpack);
 	ft_error();
 }
-
