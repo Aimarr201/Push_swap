@@ -12,33 +12,35 @@
 
 #include "push_swap.h"
 
-void	ft_validate_flag(t_stack *backpack, t_stats *totebag, int start)
+void	ft_validate_flag(t_stats *totebag, int start, char **argv)
 {
-	if (totebag->algorithm_flag == 0 || totebag->bench_flag == 0)
+	if (ft_strcmp(argv[start], "--simple")
+		|| ft_strcmp(argv[start], "--medium")
+		|| ft_strcmp(argv[start], "--complex")
+		|| ft_strcmp(argv[start], "--adaptative"))
 	{
-		if (totebag->algorithm_flag == 0)
-		{
-			if (ft_strcmp(backpack->stack_a[start], "--simple"))
-				totebag->algorithm_flag = 1;
-			else if (ft_strcmp(backpack->stack_a[start], "--medium"))
-				totebag->algorithm_flag = 2;
-			else if (ft_strcmp(backpack->stack_a[start], "--complex"))
-				totebag->algorithm_flag = 3;
-			else if (ft_strcmp(backpack->stack_a[start], "--adaptative"))
-				totebag->algorithm_flag = 4;
-			else
-				ft_error_free(&backpack, &totebag);
-		}
-		if (totebag->bench_flag == 0)
-		{
-			if (ft_strcmp(backpack->stack_a[start], "--bench"))
-				totebag->bench_flag = 1;
-		}
+		if (totebag->algorithm_flag != 0)
+			ft_error();
+		if (ft_strcmp(argv[start], "--simple"))
+			totebag->algorithm_flag = 1;
+		else if (ft_strcmp(argv[start], "--medium"))
+			totebag->algorithm_flag = 2;
+		else if (ft_strcmp(argv[start], "--complex"))
+			totebag->algorithm_flag = 3;
+		else
+			totebag->algorithm_flag = 4;
 	}
-	ft_error();
+	else if (ft_strcmp(argv[start], "--bench"))
+	{
+		if (totebag->bench_flag != 0)
+			ft_error();
+		totebag->bench_flag = 1;
+	}
+	else
+		ft_error();
 }
 
-void	parse_args(int argc, char *argv[], t_stack *backpack, t_stats *totebag)
+void	parse_args(int argc, char **argv, t_stack *backpack, t_stats *totebag)
 {
 	int	i;
 	int	nums;
@@ -50,7 +52,7 @@ void	parse_args(int argc, char *argv[], t_stack *backpack, t_stats *totebag)
 	start = 1;
 	while (argv[start][0] == '-' && argv[start][1] == '-')
 	{
-		ft_validate_flag(&backpack, &totebag, start);
+		ft_validate_flag(totebag, start, argv);
 		start++;
 	}
 	if (argc < start + 1)

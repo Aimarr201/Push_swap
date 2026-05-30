@@ -86,7 +86,7 @@ void	init_back(t_stack *backpack, int size, int i, int argc, char **argv);
 void	compute_disorder(t_stack *backpack, t_stats *totebag);
 
 /* push_swap.c */
-int		ft_validate_flag(char *flag);
-void	parse_args(int argc, char *argv[], t_stack *backpack, t_stats *totebag);
+void	ft_validate_flag(t_stats *totebag, int start, char **argv);
+void	parse_args(int argc, char **argv, t_stack *backpack, t_stats *totebag);
 
 #endif
