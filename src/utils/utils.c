@@ -14,7 +14,7 @@
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s1[i] && s2[i])
@@ -23,8 +23,11 @@ int	ft_strcmp(const char *s1, const char *s2)
 			return (0);
 		i++;
 	}
+	if (s1[i] != s2[i])
+		return (0);
 	return (1);
 }
+
 void	ft_putstr(char *str)
 {
 	size_t	i;
@@ -41,24 +44,27 @@ void	ft_isnum(char *str)
 {
 	char	*tmp;
 
-	if (!str)
+	if (!str || !*str)
 		ft_error();
 	tmp = str;
-	if ((*tmp == '-' || *tmp == '+') && (*tmp + 1 > '0' && *tmp + 1 < '9'))
-		*tmp++;
+	if ((*tmp == '-' || *tmp == '+'))
+	{
+		if (*(tmp + 1) < '0' || *(tmp + 1) > '9')
+			ft_error();
+		tmp++;
+	}
 	while (*tmp)
 	{
-		if (*tmp > '0' && *tmp < '9')
-			*tmp++;
-		else
+		if (*tmp < '0' || *tmp > '9')
 			ft_error();
+		tmp++;
 	}
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	num;
-	int	negative;
+	long	num;
+	int		negative;
 
 	num = 0;
 	negative = 0;
@@ -72,7 +78,7 @@ int	ft_atoi(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		num = num * 10 + *str - '0';
+		num = num * 10 + *str - 48;
 		str++;
 	}
 	if (negative == 1)
