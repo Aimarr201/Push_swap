@@ -26,3 +26,9 @@ void	ft_free_arrays(t_stack *backpack)
 		backpack->stack_b = NULL;
 	}
 }
+void	ft_free_back_and_tote(t_stack *backpack, t_stats *totebag)
+{
+	ft_free_arrays(backpack);
+	free(backpack);
+	free(totebag);
+}

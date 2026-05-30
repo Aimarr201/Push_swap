@@ -77,6 +77,7 @@ void	ft_has_duplicates(t_stack *backpack);
 
 /* free.c */
 void	ft_free_arrays(t_stack *backpack);
+void	ft_free_back_and_tote(t_stack *backpack, t_stats *totebag);
 
 /* init.c */
 void	init_back(t_stack *backpack, int size, int i, int argc, char **argv);

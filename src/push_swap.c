@@ -73,8 +73,12 @@ int	main(int argc, char *argv[])
 
 	if (argc < 2)
 		ft_error();
-	parse_args(argc, argv, &backpack, &totebag);
-	compute_disorder(&backpack, &totebag);
+	backpack = malloc(sizeof(t_stack));
+	totebag = malloc(sizeof(t_stats));
+	if (!backpack || !totebag)
+		ft_error();
+	parse_args(argc, argv, backpack, totebag);
+	compute_disorder(backpack, totebag);
 	if (totebag->algorithm_flag)
 	{
 		if (totebag->algorithm_flag == 1)
