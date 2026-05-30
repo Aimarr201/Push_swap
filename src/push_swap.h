@@ -26,6 +26,25 @@ typedef struct s_stacks
 	int	len_b;
 }		t_stack;
 
+typedef struct s_stats
+{
+	int		sa;
+	int		sb;
+	int		ss;
+	int		pa;
+	int		pb;
+	int		ra;
+	int		rb;
+	int		rr;
+	int		rra;
+	int		rrb;
+	int		rrr;
+	int		total_ops;
+	float	disorder;
+	int		bench_flag;
+	int		algorithm_flag;
+}			t_stats;
+
 /* error.c */
 void	ft_error(void);
 void	ft_error_free(t_stack *backpack);
