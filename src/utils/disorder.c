@@ -12,29 +12,29 @@
 
 #include "push_swap.h"
 
-float    compute_disorder(int *array, int size)
+float	compute_disorder(t_stack *backpack, t_stats *totebag)
 {
-    int    mistakes;
-    int    posible_combinations;
-    int    i;
-    int    j;
+	int	mistakes;
+	int	posible_combinations;
+	int	i;
+	int	j;
 
-    if (size <= 1)
-        return (0.0f);
-    mistakes = 0;
-    posible_combinations = 0;
-    i = 0;
-    while (i < size)
-    {
-        j = i + 1;
-        while (j < size)
-        {
-            posible_combinations++;
-            if (array[i] > array[j])
-                mistakes++;
-            j++;
-        }
-        i++;
-    }
-    return ((float)mistakes / (float)posible_combinations);
+	if (!backpack || backpack->len_a <= 1)
+		return (0.0f);
+	mistakes = 0;
+	posible_combinations = 0;
+	i = 0;
+	while (i < backpack->len_a)
+	{
+		j = i + 1;
+		while (j < backpack->len_a)
+		{
+			posible_combinations++;
+			if (backpack->stack_a[i] > backpack->stack_a[j])
+				mistakes++;
+			j++;
+		}
+		i++;
+	}
+	return ((float)mistakes / (float)posible_combinations);
 }
