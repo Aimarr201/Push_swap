@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 19:35:19 by amendibi          #+#    #+#             */
-/*   Updated: 2026/05/29 18:56:05 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/05/30 18:55:01 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	ft_has_duplicates(t_stack *backpack);
 void	ft_free_arrays(t_stack *backpack);
 
 /* init.c */
-void	init_backpack(t_stack *backpack, int size, int i, int argc, char **argv);
+void	init_back(t_stack *backpack, int size, int i, int argc, char **argv);
 
 /* disorder.c */
 float	compute_disorder(t_stack *backpack, t_stats *totebag);

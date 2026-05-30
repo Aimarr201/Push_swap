@@ -50,7 +50,7 @@ void	parse_args(int argc, char *argv[], t_stack *backpack, t_stats *totebag)
 		nums++;
 		i++;
 	}
-	init_backpack(backpack, nums, start, argc, argv);
+	init_back(backpack, nums, start, argc, argv);
 }
 
 int	main(int argc, char *argv[])

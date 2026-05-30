@@ -1,7 +1,7 @@
 
 #include "push_swap.h"
 
-void	init_backpack(t_stack *backpack, int size, int i, int argc, char **argv)
+void	init_back(t_stack *backpack, int size, int i, int argc, char **argv)
 {
 	if (!backpack)
 		ft_error();
