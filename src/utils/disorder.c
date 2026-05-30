@@ -12,15 +12,13 @@
 
 #include "push_swap.h"
 
-float	compute_disorder(t_stack *backpack, t_stats *totebag)
+void	compute_disorder(t_stack *backpack, t_stats *totebag)
 {
 	int	mistakes;
 	int	posible_combinations;
 	int	i;
 	int	j;
 
-	if (!backpack || backpack->len_a <= 1)
-		return (0.0f);
 	mistakes = 0;
 	posible_combinations = 0;
 	i = 0;
@@ -36,5 +34,5 @@ float	compute_disorder(t_stack *backpack, t_stats *totebag)
 		}
 		i++;
 	}
-	return ((float)mistakes / (float)posible_combinations);
+	totebag->disorder = ((float)mistakes / (float)posible_combinations);
 }

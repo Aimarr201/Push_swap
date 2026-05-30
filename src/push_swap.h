@@ -83,7 +83,7 @@ void	ft_free_back_and_tote(t_stack *backpack, t_stats *totebag);
 void	init_back(t_stack *backpack, int size, int i, int argc, char **argv);
 
 /* disorder.c */
-float	compute_disorder(t_stack *backpack, t_stats *totebag);
+void	compute_disorder(t_stack *backpack, t_stats *totebag);
 
 /* push_swap.c */
 int		ft_validate_flag(char *flag);
