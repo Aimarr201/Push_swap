@@ -79,3 +79,22 @@ int	ft_atoi(const char *str)
 		return (num * -1);
 	return (num);
 }
+
+void	ft_has_duplicates(t_stack *backpack)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < backpack->len_a)
+	{
+		j = i + 1;
+		while (j < backpack->len_a)
+		{
+			if (backpack->stack_a[i] == backpack->stack_a[j])
+				ft_error_free(&backpack);
+			j++;
+		}
+		i++;
+	}
+}
