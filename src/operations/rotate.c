@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 17:21:39 by luciamar          #+#    #+#             */
-/*   Updated: 2026/05/30 19:55:28 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/01 17:35:01 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	ra(t_stack *backpack, t_stats *totebag)
 		i++;
 	}
 	backpack->stack_a[backpack->len_a - 1] = tmp;
+	totebag->ra++;
+	totebag->total_ops++;
 	ft_putstr("ra\n");
 }
 
@@ -45,6 +47,8 @@ void	rb(t_stack *backpack, t_stats *totebag)
 		i++;
 	}
 	backpack->stack_b[backpack->len_b - 1] = tmp;
+	totebag->ra++;
+	totebag->total_ops++;
 	ft_putstr("rb\n");
 }
 
@@ -69,5 +73,7 @@ void	rr(t_stack *backpack, t_stats *totebag)
 			backpack->stack_b[i] = backpack->stack_b[i + 1];
 		backpack->stack_b[backpack->len_b - 1] = tmp;
 	}
+	totebag->rr++;
+	totebag->total_ops++;
 	ft_putstr("rr\n");
 }
