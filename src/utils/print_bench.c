@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dispatch_adaptative.c                              :+:      :+:    :+:   */
+/*   print_bench.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/28 17:47:15 by luciamar          #+#    #+#             */
-/*   Updated: 2026/06/01 18:59:25 by amendibi         ###   ########.fr       */
+/*   Created: 2026/06/01 19:11:03 by amendibi          #+#    #+#             */
+/*   Updated: 2026/06/01 19:42:36 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	dispatch_adaptative(t_stack *backpack, t_stats *totebag)
+void print_bench(t_stats *totebag)
 {
-	if (totebag->disorder < 0.2)
-		algorithm_simple(backpack, totebag);
-	else if (totebag->disorder < 0.5)
-		algorithm_medium(backpack, totebag);
-	else
-		algorithm_complex(backpack, totebag);
+	if (totebag->algorithm_flag)
+	write(2, [bench] disorder: %f%\n, 21);
 }

@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 19:35:19 by amendibi          #+#    #+#             */
-/*   Updated: 2026/05/30 18:55:01 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/01 19:08:43 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,28 +45,28 @@ typedef struct s_stats
 	int		algorithm_flag;
 }			t_stats;
 
+/* push.c */
+void	pa(t_stack *backpack, t_stats *totebag);
+void	pb(t_stack *backpack, t_stats *totebag);
+
+/* swap.c */
+void	sa(t_stack *backpack, t_stats *totebag);
+void	sb(t_stack *backpack, t_stats *totebag);
+void	ss(t_stack *backpack, t_stats *totebag);
+
+/* rotate.c */
+void	ra(t_stack *backpack, t_stats *totebag);
+void	rb(t_stack *backpack, t_stats *totebag);
+void	rr(t_stack *backpack, t_stats *totebag);
+
+/* rev_rotate.c */
+void	rra(t_stack *backpack, t_stats *totebag);
+void	rrb(t_stack *backpack, t_stats *totebag);
+void	rrr(t_stack *backpack, t_stats *totebag);
+
 /* error.c */
 void	ft_error(void);
 void	ft_error_free(t_stack *backpack);
-
-/* push.c */
-void	pa(t_stack *backpack);
-void	pb(t_stack *backpack);
-
-/* swap.c */
-void	sa(t_stack *backpack);
-void	sb(t_stack *backpack);
-void	ss(t_stack *backpack);
-
-/* rotate.c */
-void	ra(t_stack *backpack);
-void	rb(t_stack *backpack);
-void	rr(t_stack *backpack);
-
-/* rev_rotate.c */
-void	rra(t_stack *backpack);
-void	rrb(t_stack *backpack);
-void	rrr(t_stack *backpack);
 
 /* utils.c */
 int		ft_strcmp(const char *s1, const char *s2);
@@ -81,12 +81,17 @@ void	ft_free_back_and_tote(t_stack *backpack, t_stats *totebag);
 
 /* init.c */
 void	init_back(t_stack *backpack, int size, int i, int argc, char **argv);
+void	init_totebag(t_stats *totebag);
 
 /* disorder.c */
 void	compute_disorder(t_stack *backpack, t_stats *totebag);
 
 /* push_swap.c */
-void	ft_validate_flag(t_stats *totebag, int start, char **argv);
+int		main(int argc, char *argv[]);
 void	parse_args(int argc, char **argv, t_stack *backpack, t_stats *totebag);
+void	ft_validate_flag(t_stats *totebag, int start, char **argv);
+
+/* dispatch_adaptative.c */
+void	dispatch_adaptative(t_stack *backpack, t_stats *totebag);
 
 #endif

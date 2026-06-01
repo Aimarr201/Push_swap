@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 18:15:13 by amendibi          #+#    #+#             */
-/*   Updated: 2026/05/30 19:24:55 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/01 18:31:25 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ void	parse_args(int argc, char **argv, t_stack *backpack, t_stats *totebag)
 	int	nums;
 	int	start;
 
-	if (argc < 2)
-		ft_error();
 	init_totebag(totebag);
 	start = 1;
 	while (argv[start][0] == '-' && argv[start][1] == '-')
@@ -55,7 +53,7 @@ void	parse_args(int argc, char **argv, t_stack *backpack, t_stats *totebag)
 		ft_validate_flag(totebag, start, argv);
 		start++;
 	}
-	if (argc < start + 1)
+	if (argc < start + 1) // verificar comportamiento
 		ft_error();
 	nums = 0;
 	i = start;
@@ -84,13 +82,13 @@ int	main(int argc, char *argv[])
 	if (totebag->algorithm_flag)
 	{
 		if (totebag->algorithm_flag == 1)
-			algorithm_simple(backpack);
+			algorithm_simple(backpack, totebag);
 		else if (totebag->algorithm_flag == 2)
-			algorithm_medium(backpack);
+			algorithm_medium(backpack, totebag);
 		else if (totebag->algorithm_flag == 3)
-			algorithm_complex(backpack);
+			algorithm_complex(backpack, totebag);
 	}
 	else
-		dispatch_adaptative(backpack);
+		dispatch_adaptative(backpack, totebag);
 	ft_free_back_and_tote(backpack, totebag);
 }
