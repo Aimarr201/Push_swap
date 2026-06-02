@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 18:15:13 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/01 18:31:25 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/02 19:22:34 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_validate_flag(t_stats *totebag, int start, char **argv)
 	if (ft_strcmp(argv[start], "--simple")
 		|| ft_strcmp(argv[start], "--medium")
 		|| ft_strcmp(argv[start], "--complex")
-		|| ft_strcmp(argv[start], "--adaptative"))
+		|| ft_strcmp(argv[start], "--adaptive"))
 	{
 		if (totebag->algorithm_flag != 0)
 			ft_error();
