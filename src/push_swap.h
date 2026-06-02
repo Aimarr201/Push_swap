@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 19:35:19 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/01 19:08:43 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/02 20:04:36 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdarg.h>
 
 typedef struct s_stacks
 {
@@ -44,6 +45,13 @@ typedef struct s_stats
 	int		bench_flag;
 	int		algorithm_flag;
 }			t_stats;
+
+typedef struct s_chunk
+{
+	int	size;
+	int	max;
+}		t_c;
+
 
 /* push.c */
 void	pa(t_stack *backpack, t_stats *totebag);
@@ -97,5 +105,10 @@ void	dispatch_adaptative(t_stack *backpack, t_stats *totebag);
 /* print_bench.c */
 void	ft_print_disorder(float disorder);
 void ft_print_bench(t_stats *totebag);
+
+/* sort_medium_utils.c */
+int	ft_sqrt(int nb);
+void	replace_with_ranks(t_stack *backpack);
+int	find_closest_chunck_elem(t_stack *backpack, int chunck, int chunck_size);
 
 #endif
