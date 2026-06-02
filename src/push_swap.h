@@ -76,16 +76,16 @@ void	rrr(t_stack *backpack, t_stats *totebag);
 void	ft_error(void);
 void	ft_error_free(t_stack *backpack);
 
+/* free.c */
+void	ft_free_arrays(t_stack *backpack);
+void	ft_free_back_and_tote(t_stack *backpack, t_stats *totebag);
+
 /* utils.c */
 int		ft_strcmp(const char *s1, const char *s2);
 void	ft_putstr(char *str);
 void	ft_isnum(char *str);
 long	ft_atoi(const char *str);
 void	ft_has_duplicates(t_stack *backpack);
-
-/* free.c */
-void	ft_free_arrays(t_stack *backpack);
-void	ft_free_back_and_tote(t_stack *backpack, t_stats *totebag);
 
 /* init.c */
 void	init_back(t_stack *backpack, int size, int i, int argc, char **argv);
@@ -103,8 +103,11 @@ void	ft_validate_flag(t_stats *totebag, int start, char **argv);
 void	dispatch_adaptative(t_stack *backpack, t_stats *totebag);
 
 /* print_bench.c */
+void	ft_print_bench(t_stats *totebag);
 void	ft_print_disorder(float disorder);
-void ft_print_bench(t_stats *totebag);
+void	ft_print_strat(t_stats *totebag);
+void	ft_print(char const *str, ...);
+void	ft_printnbr(int n);
 
 /* sort_medium_utils.c */
 int	ft_sqrt(int nb);

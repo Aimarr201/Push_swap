@@ -43,65 +43,75 @@ void	ft_print_disorder(float disorder)
 
 void	ft_print_strat(t_stats *totebag)
 {
-	write(2, "[bench] strategy: ", 19);
+	ft_print("[bench] strategy: ");
 	if (totebag->algorithm_flag == 1)
-		write(2, "Simple", 7);
+		ft_print("Simple");
 	else if (totebag->algorithm_flag == 2)
-		write(2, "Medium", 6);
+		ft_print("Medium");
 	else if (totebag->algorithm_flag == 3)
-		write(2, "Complex", 7);
+	ft_print("Complex");
+	if (totebag->disorder < 0.2)
+		ft_print(" / O(n²)\n");
+	else if (totebag->disorder < 0.5)
+		ft_print(" / O(n√n)\n");
 	else
-	{
-		if (totebag->disorder > 0.2)
-			write(2, " / O(n²)\n", 9);
-		else if (totebag->disorder > 0.5)
-			write(2, " / O(n√n)\n", 10);
-		else
-			write(2, " / O(nlogn)\n", 12);
-	}
+		ft_print(" / O(nlogn)\n");
+
 }
 
 void	ft_print_bench(t_stats *totebag)
 {
 	ft_print_disorder(totebag->disorder);
 	ft_print_strat(totebag);
-	print("[bench] totalops: %d", totebag->total_ops);
-	print("[bench] pa: %d	pb %d", totebag->pa, totebag->pb);
-	print("[bench] sa: %d sb %d ss %d",
+	ft_print("[bench] totalops: %d\n", totebag->total_ops);
+	ft_print("[bench] pa: %d pb %d\n", totebag->pa, totebag->pb);
+	ft_print("[bench] sa: %d sb %d ss %d\n",
 		totebag->sa, totebag->sb, totebag->ss);
-	print("[bench] ra: %d	rb %d	rr %d",
+	ft_print("[bench] ra: %d rb %d rr %d\n",
 		totebag->ra, totebag->rb, totebag->rr);
-	print("[bench] rra: %d	rrb %d	rrr %d",
+	ft_print("[bench] rra: %d rrb %d rrr %d\n",
 		totebag->rra, totebag->rrb, totebag->rrr);
 }
 
-void	print(char const *str, ...)
+void	ft_print(char const *str, ...)
 {
 	va_list	list;
 	int		i;
-	int		count;
 
 	va_start(list, str);
 	i = 0;
-	count = 0;
 	while (str[i])
 	{
-		if (str[i] == '%' && str[i] == 'd')
+		if (str[i] == '%' && str[i + 1] == 'd')
 		{
 			i++;
-			ft_printnbr(str[i]);
+			ft_printnbr(va_arg(list, int));
 		}
 		else
-			write(2, '&str[i]', 1);
+			write(2, &str[i], 1);
 		i++;
 	}
 	va_end(list);
-	return (count);
 }
 
 void	ft_printnbr(int n)
 {
-	if (n > 9)
-		ft_printnumber(n / 10);
-	write(2, (n % 10) + '0', 1);
+	int	divisor;
+	int	width;
+
+	divisor = 1;
+	while (divisor <= n / 10)
+		divisor *= 10;
+	width = 0;
+	while (divisor >= 1)
+	{
+		write(2, (char)((n / divisor) % 10) + '0', 1);
+		divisor /= 10;
+		width++;
+	}
+	while (width < 6)
+	{
+		write(2, " ", 1);
+		width++;
+	}
 }
