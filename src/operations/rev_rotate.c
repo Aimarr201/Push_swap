@@ -12,12 +12,11 @@
 
 #include "push_swap.h"
 
- 
 static void	rev_rotate(int *stack, int len)
 {
 	int	tmp;
 	int	i;
- 
+
 	tmp = stack[len - 1];
 	i = len - 1;
 	while (i > 0)
@@ -27,7 +26,7 @@ static void	rev_rotate(int *stack, int len)
 	}
 	stack[0] = tmp;
 }
- 
+
 void	rra(t_stack *backpack, t_stats *totebag)
 {
 	if (backpack->len_a < 2)
@@ -37,7 +36,7 @@ void	rra(t_stack *backpack, t_stats *totebag)
 	totebag->total_ops++;
 	ft_putstr("rra\n");
 }
- 
+
 void	rrb(t_stack *backpack, t_stats *totebag)
 {
 	if (backpack->len_b < 2)
@@ -47,7 +46,7 @@ void	rrb(t_stack *backpack, t_stats *totebag)
 	totebag->total_ops++;
 	ft_putstr("rrb\n");
 }
- 
+
 void	rrr(t_stack *backpack, t_stats *totebag)
 {
 	if (backpack->len_a >= 2)

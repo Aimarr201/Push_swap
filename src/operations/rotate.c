@@ -11,13 +11,12 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/*static para que no sea visible en otras funciones y 
-no hay porque declararla en el .h*/
+
 static void	rotate(int *stack, int len)
 {
 	int	tmp;
 	int	i;
- 
+
 	tmp = stack[0];
 	i = 0;
 	while (i < len - 1)
