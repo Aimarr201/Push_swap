@@ -6,13 +6,13 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 00:00:00 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/02 00:00:00 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/02 19:51:05 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	find_insert_pos(t_stack *backpack, int value)
+int	find_insert_pos(t_stack *backpack, int value)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ static int	find_insert_pos(t_stack *backpack, int value)
 	return (backpack->len_b);
 }
 
-static void	rotate_b_to_pos(t_stack *backpack, t_stats *totebag, int pos)
+void	rotate_b_to_pos(t_stack *backpack, t_stats *totebag, int pos)
 {
 	int	steps;
 
@@ -46,7 +46,7 @@ static void	rotate_b_to_pos(t_stack *backpack, t_stats *totebag, int pos)
 	}
 }
 
-static void	push_all_to_b(t_stack *backpack, t_stats *totebag)
+void	push_all_to_b(t_stack *backpack, t_stats *totebag)
 {
 	int	pos;
 
