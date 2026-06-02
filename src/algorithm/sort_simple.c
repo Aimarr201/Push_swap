@@ -1,77 +1,68 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_simple.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/02 00:00:00 by amendibi          #+#    #+#             */
+/*   Updated: 2026/06/02 00:00:00 by amendibi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_insertion_position(t_stack *backpack, int value)
+static int	find_insert_pos(t_stack *backpack, int value)
 {
 	int	i;
-	int position;
 
-	position = 0;
 	i = 0;
-	while ( i < backpack->len_b)
+	while (i < backpack->len_b)
 	{
 		if (value > backpack->stack_b[i])
-			return (position);
-		position++;
+			return (i);
 		i++;
 	}
+	return (backpack->len_b);
 }
 
-int	best_rotation_direction(int position, int stack_len)
+static void	rotate_b_to_pos(t_stack *backpack, t_stats *totebag, int pos)
 {
-	int hacia_adelante;
-	int hacia_atras;
+	int	steps;
 
-	hacia_adelante = position;
-	hacia_atras = stack_len - position;
-	return (hacia_adelante <= hacia_atras);
-}
-
-void	rotate_to_position(t_stack *backpack, t_stats *totebag, int position)
-{
-	int	i;
-	int	ve_adelante;
-
-	if (position == 0)
+	if (pos == 0)
 		return ;
-	ve_adelante = best_rotation_direction(position, backpack->len_b);
-	if (ve_adelante)
+	if (pos <= backpack->len_b / 2)
 	{
-		i = 0;
-		while (i < position)
-		{
+		steps = pos;
+		while (steps-- > 0)
 			rb(backpack, totebag);
-			i++;
-		}
 	}
 	else
 	{
-		i = 0;
-		while (i < backpack->len_b - position)
-		{
+		steps = backpack->len_b - pos;
+		while (steps-- > 0)
 			rrb(backpack, totebag);
-			i++;
-		}
 	}
 }
 
-void	algorithm_simple(t_stack *backpack)
+static void	push_all_to_b(t_stack *backpack, t_stats *totebag)
 {
-	t_stats	*totebag;
-	int	i;
-	int	position;
+	int	pos;
 
-	i = 0;
 	while (backpack->len_a > 0)
 	{
-		position = find_insert_position(backpack, backpack->stack_a[0]);
-		rotate_to_position(backpack, totebag, position);
+		pos = find_insert_pos(backpack, backpack->stack_a[0]);
+		rotate_b_to_pos(backpack, totebag, pos);
 		pb(backpack, totebag);
-		i++;
 	}
+}
+
+void	algorithm_simple(t_stack *backpack, t_stats *totebag)
+{
+	if (backpack->len_a <= 1)
+		return ;
+	push_all_to_b(backpack, totebag);
 	while (backpack->len_b > 0)
-	{
 		pa(backpack, totebag);
-	}
-	free(totebag);
 }
