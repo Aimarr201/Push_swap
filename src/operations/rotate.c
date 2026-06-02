@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 17:21:39 by luciamar          #+#    #+#             */
-/*   Updated: 2026/06/01 17:35:01 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/02 19:20:08 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	rb(t_stack *backpack, t_stats *totebag)
 		i++;
 	}
 	backpack->stack_b[backpack->len_b - 1] = tmp;
-	totebag->ra++;
+	totebag->rb++;
 	totebag->total_ops++;
 	ft_putstr("rb\n");
 }
