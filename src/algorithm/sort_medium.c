@@ -23,7 +23,7 @@ int	push_to_b(t_stack *backpack, t_stats *totebag, int pos)
 	}
 	else
 	{
-		steps = backpakc->len_a - pos;
+		steps = backpack->len_a - pos;
 		while (steps -- > 0)
 			rra(backpack, totebag);
 	}
@@ -33,7 +33,7 @@ int	push_to_b(t_stack *backpack, t_stats *totebag, int pos)
 void	empty_b_to_a(t_stack *backpack, t_stats *totebag)
 {
 	int	max_pos;
-	int steps;
+	int	steps;
 
 	while (backpack->len_b > 0)
 	{
@@ -55,15 +55,15 @@ void	empty_b_to_a(t_stack *backpack, t_stats *totebag)
 
 void	process_chunk(t_stack *backpack, t_stats *totebag, t_c *c)
 {
-	int	*chunk;
+	int	chunk;
 	int	pos;
 
-	chunck = 0;
+	chunk = 0;
 	while (chunk < c->max)
 	{
 		while (1)
 		{
-			pos = find-closest_chunk_elem(backpack, chunck, c->size);
+			pos = find_closest_chunk_elem(backpack, chunk, c->size);
 			if (pos == -1)
 				break ;
 			push_to_b(backpack, totebag, pos);
@@ -79,7 +79,7 @@ void	algorithm_medium(t_stack *backpack, t_stats *totebag)
 	if (backpack->len_a <= 1)
 		return ;
 	replace_with_ranks(backpack);
-	c.size = ft_sqrt(backpack->len_a)
+	c.size = ft_sqrt(backpack->len_a);
 	if (c.size == 0)
 		return ;
 	c.max = (backpack->len_a + c.size - 1) / c.size;

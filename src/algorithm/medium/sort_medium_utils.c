@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_medium_utils.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luciamar <luciamar@student.42urduliz.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/02 22:50:39 by luciamar          #+#    #+#             */
+/*   Updated: 2026/06/02 22:50:39 by luciamar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_sqrt(int nb)
@@ -7,7 +19,7 @@ int	ft_sqrt(int nb)
 	if (nb <= 0)
 		return(0);
 	i = 1;
-	while (i + i <= nb)
+	while (i * i <= nb)
 	{
 		if (i * i == nb)
 			return (i);
@@ -56,7 +68,7 @@ int	find_max_in_b(t_stack *backpack)
 	}
 	return (max_pos);
 }
-int	find_closest_chunck_elem(t_stack *backpack, int chunck, int chunck_size)
+int	find_closest_chunck_elem(t_stack *backpack, int chunk, int chunk_size)
 {
 	int	i;
 	int	top;
@@ -67,13 +79,13 @@ int	find_closest_chunck_elem(t_stack *backpack, int chunck, int chunck_size)
 	i = -1;
 	while (++i < backpack->len_a)
 	{
-		if (backpack-stack_a[i] / chunck_size == chunck && top == -1)
+		if (backpack->stack_a[i] / chunk_size == chunk && top == -1)
 			top = i;
 	}
-	i = backpack->len_a
+	i = backpack->len_a;
 	while (--i >= 0)
 	{
-		if (backpack->stack_a[i] / chunck && bot == -1)
+		if (backpack->stack_a[i] / chunk_size && bot == -1)
 			bot = i;
 	}
 	if (top == -1)

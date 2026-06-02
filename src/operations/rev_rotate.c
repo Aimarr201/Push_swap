@@ -12,79 +12,48 @@
 
 #include "push_swap.h"
 
-void	rev_rotate_stacks(int **stack, int len)
+ 
+static void	rev_rotate(int *stack, int len)
 {
-	int	i;
 	int	tmp;
-
+	int	i;
+ 
 	tmp = stack[len - 1];
-	i = len;
+	i = len - 1;
 	while (i > 0)
 	{
 		stack[i] = stack[i - 1];
-	}
-}
-void	rra(t_stack *backpack, t_stats *totebag)
-{
-	int	i;
-	int	tmp;
-
-	if (backpack->len_a < 2)
-		return ;
-	tmp = backpack->stack_a[backpack->len_a - 1];
-	i = backpack->len_a - 1;
-	while (i > 0)
-	{
-		backpack->stack_a[i] = backpack->stack_a[i - 1];
 		i--;
 	}
-	backpack->stack_a[0] = tmp;
+	stack[0] = tmp;
+}
+ 
+void	rra(t_stack *backpack, t_stats *totebag)
+{
+	if (backpack->len_a < 2)
+		return ;
+	rev_rotate(backpack->stack_a, backpack->len_a);
 	totebag->rra++;
 	totebag->total_ops++;
 	ft_putstr("rra\n");
 }
-
+ 
 void	rrb(t_stack *backpack, t_stats *totebag)
 {
-	int	i;
-	int	tmp;
-
 	if (backpack->len_b < 2)
 		return ;
-	tmp = backpack->stack_b[backpack->len_b - 1];
-	i = backpack->len_b - 1;
-	while (i > 0)
-	{
-		backpack->stack_b[i] = backpack->stack_b[i - 1];
-		i--;
-	}
-	backpack->stack_b[0] = tmp;
+	rev_rotate(backpack->stack_b, backpack->len_b);
 	totebag->rrb++;
 	totebag->total_ops++;
 	ft_putstr("rrb\n");
 }
-
+ 
 void	rrr(t_stack *backpack, t_stats *totebag)
 {
-	int	i;
-	int	tmp;
-
 	if (backpack->len_a >= 2)
-	{
-		tmp = backpack->stack_a[backpack->len_a - 1];
-		i = backpack->len_a;
-		while (--i > 0)
-			backpack->stack_a[i] = backpack->stack_a[i - 1];
-		backpack->stack_a[0] = tmp;
-	}
+		rev_rotate(backpack->stack_a, backpack->len_a);
 	if (backpack->len_b >= 2)
-	{
-		tmp = backpack->stack_b[backpack->len_b - 1];
-		i = backpack->len_b;
-		while (--i > 0)
-			backpack->stack_b[i] = backpack->stack_b[i - 1];
-		backpack->stack_b[0] = tmp;
-	}
+		rev_rotate(backpack->stack_b, backpack->len_b);
 	totebag->rrr++;
 	totebag->total_ops++;
 	ft_putstr("rrr\n");

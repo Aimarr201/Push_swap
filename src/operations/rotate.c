@@ -11,6 +11,22 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/*static para que no sea visible en otras funciones y 
+no hay porque declararla en el .h*/
+static void	rotate(int *stack, int len)
+{
+	int	tmp;
+	int	i;
+ 
+	tmp = stack[0];
+	i = 0;
+	while (i < len - 1)
+	{
+		stack[i] = stack[i + 1];
+		i++;
+	}
+	stack[len - 1] = tmp;
+}
 
 void	ra(t_stack *backpack, t_stats *totebag)
 {
@@ -19,14 +35,7 @@ void	ra(t_stack *backpack, t_stats *totebag)
 
 	if (backpack->len_a < 2)
 		return;
-	tmp = backpack->stack_a[0];
-	i = 0;
-	while (i < backpack->len_a - 1)
-	{
-		backpack->stack_a[i] = backpack->stack_a[i + 1];
-		i++;
-	}
-	backpack->stack_a[backpack->len_a - 1] = tmp;
+	rotate(backpack->stack_a, backpack->len_a);
 	totebag->ra++;
 	totebag->total_ops++;
 	ft_putstr("ra\n");
@@ -39,14 +48,7 @@ void	rb(t_stack *backpack, t_stats *totebag)
 
 	if (backpack->len_b < 2)
 		return;
-	tmp = backpack->stack_b[0];
-	i = 0;
-	while (i < backpack->len_b - 1)
-	{
-		backpack->stack_b[i] = backpack->stack_b[i + 1];
-		i++;
-	}
-	backpack->stack_b[backpack->len_b - 1] = tmp;
+	rotate(backpack->stack_b, backpack->len_b);
 	totebag->rb++;
 	totebag->total_ops++;
 	ft_putstr("rb\n");
@@ -54,25 +56,10 @@ void	rb(t_stack *backpack, t_stats *totebag)
 
 void	rr(t_stack *backpack, t_stats *totebag)
 {
-	int	tmp;
-	int	i;
-
 	if (backpack->len_a >= 2)
-	{
-		tmp = backpack->stack_a[0];
-		i = -1;
-		while (++i < backpack->len_a - 1)
-			backpack->stack_a[i] = backpack->stack_a[i + 1];
-		backpack->stack_a[backpack->len_a - 1] = tmp;
-	}
+		rotate(backpack->stack_a, backpack->len_a);
 	if (backpack->len_b >= 2)
-	{
-		tmp = backpack->stack_b[0];
-		i = -1;
-		while (++i < backpack->len_b - 1)
-			backpack->stack_b[i] = backpack->stack_b[i + 1];
-		backpack->stack_b[backpack->len_b - 1] = tmp;
-	}
+		rotate(backpack->stack_b, backpack->len_b);
 	totebag->rr++;
 	totebag->total_ops++;
 	ft_putstr("rr\n");
