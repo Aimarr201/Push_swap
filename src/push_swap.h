@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 19:35:19 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/03 14:08:29 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/03 19:55:06 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,5 +116,9 @@ void	ft_printnbr(int nbr, int is_last);
 int	ft_sqrt(int nb);
 void	replace_with_ranks(t_stack *backpack);
 int	find_closest_chunck_elem(t_stack *backpack, int chunck, int chunck_size);
+
+/*sort_complex.c*/
+int	count_bits_needed(int size);
+
 
 #endif
