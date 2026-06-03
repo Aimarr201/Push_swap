@@ -74,6 +74,7 @@ void	ft_print_bench(t_stats *totebag)
 		ft_print("[bench] rra: %d rrb %d rrr %d\n",
 			totebag->rra, totebag->rrb, totebag->rrr);
 	}
+	exit (0);
 }
 
 void	ft_print(char const *str, ...)
