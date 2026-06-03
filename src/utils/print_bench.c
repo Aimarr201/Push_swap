@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 19:11:03 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/02 20:03:14 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/03 13:47:43 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,19 @@ void	ft_print(char const *str, ...)
 {
 	va_list	list;
 	int		i;
+	int		is_last;
 
+	is_last = 0;
 	va_start(list, str);
 	i = 0;
 	while (str[i])
 	{
 		if (str[i] == '%' && str[i + 1] == 'd')
 		{
+			if (str[i + 2] == '\n')
+				is_last++;
 			i++;
-			ft_printnbr(va_arg(list, int));
+			ft_printnbr(va_arg(list, int), is_last);
 		}
 		else
 			write(2, &str[i], 1);
@@ -94,24 +98,27 @@ void	ft_print(char const *str, ...)
 	va_end(list);
 }
 
-void	ft_printnbr(int n)
+void	ft_printnbr(int nbr, int is_last)
 {
 	int	divisor;
 	int	width;
 
 	divisor = 1;
-	while (divisor <= n / 10)
+	while (divisor <= nbr / 10)
 		divisor *= 10;
 	width = 0;
 	while (divisor >= 1)
 	{
-		write(2, (char)((n / divisor) % 10) + '0', 1);
+		write(2, (char)((nbr / divisor) % 10) + '0', 1);
 		divisor /= 10;
 		width++;
 	}
-	while (width < 6)
+	if (!is_last)
 	{
-		write(2, " ", 1);
-		width++;
+		while (width < 6)
+		{
+			write(2, " ", 1);
+			width++;
+		}
 	}
 }
