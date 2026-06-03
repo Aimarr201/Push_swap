@@ -20,12 +20,8 @@ int	ft_sqrt(int nb)
 		return(0);
 	i = 1;
 	while (i * i < nb)
-	{
-		if (i * i == nb)
-			i++;
-		return (i);
-	}
-	return (i - 1);
+		i++;
+	return (i);
 }
 
 void	replace_with_ranks(t_stack *backpack)
@@ -68,7 +64,7 @@ int	find_max_in_b(t_stack *backpack)
 	}
 	return (max_pos);
 }
-int	find_closest_chunck_elem(t_stack *backpack, int chunk, int chunk_size)
+int	find_closest_chunk_elem(t_stack *backpack, int chunk, int chunk_size)
 {
 	int	i;
 	int	top;

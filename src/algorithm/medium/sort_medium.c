@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	push_to_b(t_stack *backpack, t_stats *totebag, int pos)
+void	push_to_b(t_stack *backpack, t_stats *totebag, int pos)
 {
 	int	steps;
 
@@ -83,6 +83,6 @@ void	algorithm_medium(t_stack *backpack, t_stats *totebag)
 	if (c.size == 0)
 		return ;
 	c.max = (backpack->len_a + c.size - 1) / c.size;
-	process_chunks(backpack, totebag, &c);
+	process_chunk(backpack, totebag, &c);
 	empty_b_to_a(backpack, totebag);
 }
