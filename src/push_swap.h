@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 19:35:19 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/02 20:04:36 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/03 13:49:41 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void	ft_print_bench(t_stats *totebag);
 void	ft_print_disorder(float disorder);
 void	ft_print_strat(t_stats *totebag);
 void	ft_print(char const *str, ...);
-void	ft_printnbr(int n);
+void	ft_printnbr(int nbr, int is_last);
 
 /* sort_medium_utils.c */
 int	ft_sqrt(int nb);
