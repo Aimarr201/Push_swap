@@ -104,7 +104,7 @@ void	ft_validate_flag(t_stats *totebag, int start, char **argv);
 void	dispatch_adaptative(t_stack *backpack, t_stats *totebag);
 
 /* print_bench.c */
-void	ft_print_bench(t_stats *totebag);
+void	ft_print_bench(t_stack *backpack, t_stats *totebag);
 void	ft_print_disorder(float disorder);
 void	ft_print_strat(t_stats *totebag);
 void	ft_print(char const *str, ...);

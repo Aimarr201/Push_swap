@@ -77,14 +77,22 @@ void	algorithm_medium(t_stack *backpack, t_stats *totebag)
 
 	chunck = malloc(sizeof(t_c));
 	if (!chunck)
-		ft_error_free(backpack, totebag);
+		ft_error_free(backpack);
 	if (backpack->len_a <= 1)
-		return ;
+	{
+		free(chunck);
+		ft_print_bench(backpack, totebag);
+	}
 	replace_with_ranks(backpack);
 	chunck->size = ft_sqrt(backpack->len_a);
 	if (chunck->size == 0)
-		return ;
+	{
+		free(chunck);
+		ft_print_bench(backpack, totebag);
+	}
 	chunck->max = (backpack->len_a + chunck->size - 1) / chunck->size;
 	process_chunk(backpack, totebag, chunck);
 	empty_b_to_a(backpack, totebag);
+	free(chunck);
+	ft_print_bench(backpack, totebag);
 }

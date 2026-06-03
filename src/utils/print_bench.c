@@ -59,7 +59,7 @@ void	ft_print_strat(t_stats *totebag)
 
 }
 
-void	ft_print_bench(t_stats *totebag)
+void	ft_print_bench(t_stack *backpack, t_stats *totebag)
 {
 	if (totebag->bench_flag)
 	{
@@ -74,6 +74,7 @@ void	ft_print_bench(t_stats *totebag)
 		ft_print("[bench] rra: %d rrb %d rrr %d\n",
 			totebag->rra, totebag->rrb, totebag->rrr);
 	}
+	ft_free_back_and_tote(backpack, totebag);
 	exit (0);
 }
 

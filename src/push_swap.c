@@ -90,6 +90,6 @@ int	main(int argc, char *argv[])
 	}
 	else
 		dispatch_adaptative(backpack, totebag);
-	ft_print_bench(totebag);
+	ft_print_bench(backpack, totebag);
 	ft_free_back_and_tote(backpack, totebag);
 }
