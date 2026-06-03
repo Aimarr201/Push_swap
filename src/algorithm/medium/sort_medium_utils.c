@@ -6,7 +6,7 @@
 /*   By: luciamar <luciamar@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 22:50:39 by luciamar          #+#    #+#             */
-/*   Updated: 2026/06/02 22:50:39 by luciamar         ###   ########.fr       */
+/*   Updated: 2026/06/03 20:00:54 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	find_max_in_b(t_stack *backpack)
 	}
 	return (max_pos);
 }
-int	find_closest_chunk_elem(t_stack *backpack, int chunk, int chunk_size)
+int	find_closest_elem(t_stack *backpack, t_c *chunk)
 {
 	int	i;
 	int	top;
@@ -75,13 +75,13 @@ int	find_closest_chunk_elem(t_stack *backpack, int chunk, int chunk_size)
 	i = -1;
 	while (++i < backpack->len_a)
 	{
-		if (backpack->stack_a[i] / chunk_size == chunk && top == -1)
+		if (backpack->stack_a[i] / chunk->size == chunk->how_many && top == -1)
 			top = i;
 	}
 	i = backpack->len_a;
 	while (--i >= 0)
 	{
-		if (backpack->stack_a[i] / chunk_size == chunk && bot == -1)
+		if (backpack->stack_a[i] / chunk->size == chunk->how_many && bot == -1)
 			bot = i;
 	}
 	if (top == -1)

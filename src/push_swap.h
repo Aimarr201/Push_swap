@@ -50,6 +50,7 @@ typedef struct s_chunk
 {
 	int	size;
 	int	max;
+	int	how_many;
 }		t_c;
 
 
