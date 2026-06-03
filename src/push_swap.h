@@ -73,13 +73,11 @@ void	rra(t_stack *backpack, t_stats *totebag);
 void	rrb(t_stack *backpack, t_stats *totebag);
 void	rrr(t_stack *backpack, t_stats *totebag);
 
-/* error.c */
-void	ft_error(void);
-void	ft_error_free(t_stack *backpack);
-
-/* free.c */
+/* error_and_free.c */
 void	ft_free_arrays(t_stack *backpack);
 void	ft_free_back_and_tote(t_stack *backpack, t_stats *totebag);
+void	ft_error(void);
+void	ft_error_free(t_stack *backpack);
 
 /* utils.c */
 int		ft_strcmp(const char *s1, const char *s2);
