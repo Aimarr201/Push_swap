@@ -19,11 +19,11 @@ int	ft_sqrt(int nb)
 	if (nb <= 0)
 		return(0);
 	i = 1;
-	while (i * i <= nb)
+	while (i * i < nb)
 	{
 		if (i * i == nb)
-			return (i);
-		i++;
+			i++;
+		return (i);
 	}
 	return (i - 1);
 }
@@ -85,7 +85,7 @@ int	find_closest_chunck_elem(t_stack *backpack, int chunk, int chunk_size)
 	i = backpack->len_a;
 	while (--i >= 0)
 	{
-		if (backpack->stack_a[i] / chunk_size && bot == -1)
+		if (backpack->stack_a[i] / chunk_size == chunk && bot == -1)
 			bot = i;
 	}
 	if (top == -1)
