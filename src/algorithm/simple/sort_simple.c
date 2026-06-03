@@ -6,20 +6,20 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 00:00:00 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/02 19:51:05 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/03 16:21:50 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_insert_pos(t_stack *backpack, int value)
+int	find_insert_pos(t_stack *backpack)
 {
 	int	i;
 
 	i = 0;
 	while (i < backpack->len_b)
 	{
-		if (value > backpack->stack_b[i])
+		if (backpack->stack_a[0] > backpack->stack_b[i])
 			return (i);
 		i++;
 	}
@@ -52,7 +52,7 @@ void	push_all_to_b(t_stack *backpack, t_stats *totebag)
 
 	while (backpack->len_a > 0)
 	{
-		pos = find_insert_pos(backpack, backpack->stack_a[0]);
+		pos = find_insert_pos(backpack);
 		rotate_b_to_pos(backpack, totebag, pos);
 		pb(backpack, totebag);
 	}
