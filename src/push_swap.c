@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 18:15:13 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/02 19:22:34 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/03 16:18:43 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ int	main(int argc, char *argv[])
 	}
 	else
 		dispatch_adaptative(backpack, totebag);
+	ft_print_bench(totebag);
 	ft_free_back_and_tote(backpack, totebag);
 }

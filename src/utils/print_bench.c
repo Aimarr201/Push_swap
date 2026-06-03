@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 19:11:03 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/03 13:47:43 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/03 16:20:02 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,19 @@ void	ft_print_strat(t_stats *totebag)
 
 void	ft_print_bench(t_stats *totebag)
 {
-	ft_print_disorder(totebag->disorder);
-	ft_print_strat(totebag);
-	ft_print("[bench] totalops: %d\n", totebag->total_ops);
-	ft_print("[bench] pa: %d pb %d\n", totebag->pa, totebag->pb);
-	ft_print("[bench] sa: %d sb %d ss %d\n",
-		totebag->sa, totebag->sb, totebag->ss);
-	ft_print("[bench] ra: %d rb %d rr %d\n",
-		totebag->ra, totebag->rb, totebag->rr);
-	ft_print("[bench] rra: %d rrb %d rrr %d\n",
-		totebag->rra, totebag->rrb, totebag->rrr);
+	if (totebag->bench_flag)
+	{
+		ft_print_disorder(totebag->disorder);
+		ft_print_strat(totebag);
+		ft_print("[bench] totalops: %d\n", totebag->total_ops);
+		ft_print("[bench] pa: %d pb %d\n", totebag->pa, totebag->pb);
+		ft_print("[bench] sa: %d sb %d ss %d\n",
+			totebag->sa, totebag->sb, totebag->ss);
+		ft_print("[bench] ra: %d rb %d rr %d\n",
+			totebag->ra, totebag->rb, totebag->rr);
+		ft_print("[bench] rra: %d rrb %d rrr %d\n",
+			totebag->rra, totebag->rrb, totebag->rrr);
+	}
 }
 
 void	ft_print(char const *str, ...)
