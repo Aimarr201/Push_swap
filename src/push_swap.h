@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 19:35:19 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/03 13:49:41 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/03 14:08:29 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,10 @@ void	ft_free_back_and_tote(t_stack *backpack, t_stats *totebag);
 int		ft_strcmp(const char *s1, const char *s2);
 void	ft_putstr(char *str);
 void	ft_isnum(char *str);
-long	ft_atoi(const char *str);
 void	ft_has_duplicates(t_stack *backpack);
+
+/* atoi.c */
+int	ft_atoi(const char *str);
 
 /* init.c */
 void	init_back(t_stack *backpack, int size, int i, int argc, char **argv);

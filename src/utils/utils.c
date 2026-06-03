@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 18:37:50 by amendibi          #+#    #+#             */
-/*   Updated: 2026/05/29 19:11:12 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/03 14:06:56 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,31 +59,6 @@ void	ft_isnum(char *str)
 			ft_error();
 		tmp++;
 	}
-}
-
-long	ft_atoi(const char *str)
-{
-	long	num;
-	int		negative;
-
-	num = 0;
-	negative = 0;
-	while (*str == 32 || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			negative = 1;
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		num = num * 10 + *str - 48;
-		str++;
-	}
-	if (negative == 1)
-		return (num * -1);
-	return (num);
 }
 
 void	ft_has_duplicates(t_stack *backpack)
