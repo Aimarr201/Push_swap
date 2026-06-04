@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 19:11:03 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/04 13:20:56 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 22:51:23 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_print_disorder(float disorder)
 	char	tmp;
 
 	write(2, "[bench] disorder: ", 18);
-integer_part = (int)(disorder * 100);
-decimal_part = (int)(disorder * 10000) % 100;
+	integer_part = (int)(disorder * 100);
+	decimal_part = (int)(disorder * 10000) % 100;
 	if (integer_part >= 100)
 	{
 		tmp = '0' + (integer_part / 100);
@@ -76,12 +76,12 @@ void	ft_print_bench(t_stats *totebag)
 		ft_print_disorder(totebag->disorder);
 		ft_print_strat(totebag);
 		ft_print("[bench] totalops: %d\n", totebag->total_ops);
-		ft_print("[bench] pa: %d pb %d\n", totebag->pa, totebag->pb);
-		ft_print("[bench] sa: %d sb %d ss %d\n",
+		ft_print("[bench] pa: %d pb: %d\n", totebag->pa, totebag->pb);
+		ft_print("[bench] sa: %d sb: %d ss: %d\n",
 			totebag->sa, totebag->sb, totebag->ss);
-		ft_print("[bench] ra: %d rb %d rr %d\n",
+		ft_print("[bench] ra: %d rb: %d rr: %d\n",
 			totebag->ra, totebag->rb, totebag->rr);
-		ft_print("[bench] rra: %d rrb %d rrr %d\n",
+		ft_print("[bench] rra: %d rrb: %d rrr: %d\n",
 			totebag->rra, totebag->rrb, totebag->rrr);
 	}
 }
@@ -90,19 +90,18 @@ void	ft_print(char const *str, ...)
 {
 	va_list	list;
 	int		i;
-	int		is_last;
 
-	is_last = 0;
 	va_start(list, str);
 	i = 0;
 	while (str[i])
 	{
 		if (str[i] == '%' && str[i + 1] == 'd')
 		{
-			if (str[i + 2] == '\n')
-				is_last++;
+			if (str[i - 5] == 'r')
+				ft_printnbr(va_arg(list, int), 1);
+			else
+				ft_printnbr(va_arg(list, int), 0);
 			i++;
-			ft_printnbr(va_arg(list, int), is_last);
 		}
 		else
 			write(2, &str[i], 1);
@@ -111,7 +110,7 @@ void	ft_print(char const *str, ...)
 	va_end(list);
 }
 
-void	ft_printnbr(int nbr, int is_last)
+void	ft_printnbr(int nbr, int reverse)
 {
 	int		divisor;
 	int		width;
@@ -121,6 +120,8 @@ void	ft_printnbr(int nbr, int is_last)
 	while (divisor <= nbr / 10)
 		divisor *= 10;
 	width = 0;
+	if (reverse)
+		width++;
 	while (divisor >= 1)
 	{
 		c = ((nbr / divisor) % 10) + '0';
@@ -128,12 +129,9 @@ void	ft_printnbr(int nbr, int is_last)
 		divisor /= 10;
 		width++;
 	}
-	if (!is_last)
+	while (width < 6)
 	{
-		while (width < 6)
-		{
-			write(2, " ", 1);
-			width++;
-		}
+		write(2, " ", 1);
+		width++;
 	}
 }
