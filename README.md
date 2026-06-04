@@ -182,7 +182,7 @@ make re      # fclean + make
 Algunas referencias que nos fueron útiles durante el desarrollo:
 
 - [Explicación de Chunk Sort](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) — artículo que explica la lógica detrás del chunk sort aplicado a push_swap.
-- [Push Swap Visualizer]_(https://push-swap42-visualizer.vercel.app/) - web interactiva que te permite ver el funcionamiento de push_swap.
+- [Push Swap Visualizer](https://push-swap42-visualizer.vercel.app/) - web interactiva que te permite ver el funcionamiento de push_swap.
 - 
 ---
 
