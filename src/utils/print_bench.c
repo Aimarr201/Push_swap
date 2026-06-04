@@ -19,8 +19,8 @@ void	ft_print_disorder(float disorder)
 	char	tmp;
 
 	write(2, "[bench] disorder: ", 18);
-	integer_part = (int)disorder;
-	decimal_part = (int)((disorder - integer_part) * 100);
+integer_part = (int)(disorder * 100);
+decimal_part = (int)(disorder * 10000) % 100;
 	if (integer_part >= 100)
 	{
 		tmp = '0' + (integer_part / 100);
