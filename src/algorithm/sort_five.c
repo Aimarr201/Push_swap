@@ -6,7 +6,7 @@
 /*   By: luciamar <luciamar@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 21:35:05 by luciamar          #+#    #+#             */
-/*   Updated: 2026/06/04 22:00:04 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 23:01:49 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void	sort_five(t_stack *backpack, t_stats *totebag)
 {
 	int	pos;
 
+	if (!totebag->disorder)
+		return ;
 	while (backpack->len_a > 3)
 	{
 		pos = find_min_pos(backpack);
