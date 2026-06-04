@@ -7,7 +7,7 @@ void	count_bits_needed(t_r *rdx)
 
 	bits = 0;
 	max_rank = rdx->size - 1;
-	while ((1<< bits) <= max_rank)
+	while ((1 << bits) <= max_rank)
 		bits++;
 	rdx->total_bits = bits;
 }
@@ -48,7 +48,7 @@ void	algorithm_complex(t_stack *backpack, t_stats *totebag)
 	t_r	*rdx;
 
 	if (!totebag->disorder)
-		return;
+		return ;
 	rdx = malloc(sizeof(t_r));
 	if (!rdx)
 		ft_error_free(backpack);

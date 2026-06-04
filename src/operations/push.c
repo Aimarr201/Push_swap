@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 17:43:19 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/01 19:06:35 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 13:20:31 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	pa(t_stack *backpack, t_stats *totebag)
 {
 	int	i;
 
-	if(backpack->len_b < 1)
+	if (backpack->len_b < 1)
 		return ;
 	i = backpack->len_a;
 	while (i > 0)

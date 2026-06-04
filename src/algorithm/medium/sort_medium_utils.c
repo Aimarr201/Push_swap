@@ -6,7 +6,7 @@
 /*   By: luciamar <luciamar@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 22:50:39 by luciamar          #+#    #+#             */
-/*   Updated: 2026/06/04 13:08:18 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 13:24:33 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_sqrt(int nb)
 	int	i;
 
 	if (nb <= 0)
-		return(0);
+		return (0);
 	i = 1;
 	while (i * i < nb)
 		i++;
@@ -30,7 +30,7 @@ void	replace_with_ranks(t_stack *backpack)
 	int	i;
 	int	j;
 
-	tmp =  malloc(sizeof(int) * backpack->len_a);
+	tmp = malloc(sizeof(int) * backpack->len_a);
 	if (!tmp)
 		ft_error();
 	i = -1;
@@ -49,6 +49,7 @@ void	replace_with_ranks(t_stack *backpack)
 		backpack->stack_a[i] = tmp[i];
 	free(tmp);
 }
+
 int	find_max_in_b(t_stack *backpack)
 {
 	int	max_pos;
@@ -64,6 +65,7 @@ int	find_max_in_b(t_stack *backpack)
 	}
 	return (max_pos);
 }
+
 int	find_closest_chunk_element(t_stack *backpack, t_c *chunk)
 {
 	int	i;

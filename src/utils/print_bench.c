@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 19:11:03 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/04 12:59:46 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 13:20:56 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	ft_print_strat(t_stats *totebag)
 		ft_print(" / O(n√n)\n");
 	else
 		ft_print(" / O(nlogn)\n");
-
 }
 
 void	ft_print_bench(t_stats *totebag)

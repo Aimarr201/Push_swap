@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 00:00:00 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/04 13:07:27 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 13:25:14 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	algorithm_medium(t_stack *backpack, t_stats *totebag)
 	t_c	*chunk;
 
 	if (!totebag->disorder)
-		return;
+		return ;
 	chunk = malloc(sizeof(t_c));
 	if (!chunk)
 		ft_error_free(backpack);
