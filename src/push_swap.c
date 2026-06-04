@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 18:15:13 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/03 16:18:43 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 20:15:50 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	ft_validate_flag(t_stats *totebag, int start, char **argv)
 void	parse_args(int argc, char **argv, t_stack *backpack, t_stats *totebag)
 {
 	int	i;
-	int	nums;
 	int	start;
 
 	init_totebag(totebag);
@@ -55,15 +54,13 @@ void	parse_args(int argc, char **argv, t_stack *backpack, t_stats *totebag)
 	}
 	if (argc < start + 1)
 		ft_error();
-	nums = 0;
 	i = start;
 	while (i < argc)
 	{
 		ft_isnum(argv[i]);
-		nums++;
 		i++;
 	}
-	init_back(backpack, nums, start, argc, argv);
+	init_back(backpack, start, argc, argv);
 }
 
 int	main(int argc, char *argv[])

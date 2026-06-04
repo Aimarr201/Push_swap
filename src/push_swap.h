@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 19:35:19 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/04 20:10:44 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 20:19:31 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	ft_has_duplicates(t_stack *backpack);
 int		ft_atoi(const char *str);
 
 /* init.c */
-void	init_back(t_stack *backpack, int size, int i, int argc, char **argv);
+void	init_back(t_stack *backpack, int start, int argc, char **argv);
 void	init_totebag(t_stats *totebag);
 
 /* disorder.c */

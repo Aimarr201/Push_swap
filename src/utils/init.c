@@ -6,20 +6,25 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 13:21:08 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/04 13:21:34 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 20:18:44 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_back(t_stack *backpack, int size, int i, int argc, char **argv)
+void	init_back(t_stack *backpack, int start, int argc, char **argv)
 {
+	int	size;
+	int	i;
+
+	size = (argc - start);
 	backpack->stack_a = malloc(sizeof(int) * size);
 	backpack->stack_b = malloc(sizeof(int) * size);
 	if (!backpack->stack_a || !backpack->stack_b)
 		ft_error_free(backpack);
 	backpack->len_a = 0;
 	backpack->len_b = 0;
+	i = start;
 	while (i < argc)
 	{
 		backpack->stack_a[backpack->len_a] = (int)ft_atoi(argv[i]);
