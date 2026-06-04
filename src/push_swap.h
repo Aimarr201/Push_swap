@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 19:35:19 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/04 12:04:15 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 13:00:06 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	ft_validate_flag(t_stats *totebag, int start, char **argv);
 void	dispatch_adaptative(t_stack *backpack, t_stats *totebag);
 
 /* print_bench.c */
-void	ft_print_bench(t_stack *backpack, t_stats *totebag);
+void	ft_print_bench(t_stats *totebag);
 void	ft_print_disorder(float disorder);
 void	ft_print_strat(t_stats *totebag);
 void	ft_print(char const *str, ...);
@@ -131,12 +131,14 @@ void	algorithm_medium(t_stack *backpack, t_stats *totebag);
 /* sort_medium_utils.c */
 int		ft_sqrt(int nb);
 void	replace_with_ranks(t_stack *backpack);
-int		find_closest_chunk_elem(t_stack *backpack, int chunk, int chunk_size);
+int		find_closest_chunk_element(t_stack *backpack, t_c *chunk);
+int		find_max_in_b(t_stack *backpack);
 
 /*sort_complex.c*/
-int		count_bits_needed(int size);
-void	radix_pass_one_bit(t_stack *backpack, t_stats *totebag, int bit_pos, int size);
-void	push_all_to_b(t_stack *backpack, t_stats *totebag);
-void	algorithm_simple(t_stack *backpack, t_stats *totebag);
+void	count_bits_needed(t_r *rdx);
+void	radix_pass_one_bit(t_stack *backpack, t_stats *totebag, t_r *rdx);
+void	flush_b_to_a(t_stack *backpack, t_stats *totebag);
+void	radix_sort_by_bits(t_stack *backpack, t_stats *totebag, t_r *rdx);
+void	algorithm_complex(t_stack *backpack, t_stats *totebag);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 14:06:35 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/03 15:39:44 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 13:06:16 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	check_if_is_in_range(long num, char *str, int negative)
+static void	check_if_is_in_range(long num, const char *str, int negative)
 {
 	if (negative)
 	{

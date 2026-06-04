@@ -53,7 +53,7 @@ void	parse_args(int argc, char **argv, t_stack *backpack, t_stats *totebag)
 		ft_validate_flag(totebag, start, argv);
 		start++;
 	}
-	if (argc < start + 1) // verificar comportamiento
+	if (argc < start + 1)
 		ft_error();
 	nums = 0;
 	i = start;
@@ -90,6 +90,6 @@ int	main(int argc, char *argv[])
 	}
 	else
 		dispatch_adaptative(backpack, totebag);
-	ft_print_bench(backpack, totebag);
+	ft_print_bench(totebag);
 	ft_free_back_and_tote(backpack, totebag);
 }

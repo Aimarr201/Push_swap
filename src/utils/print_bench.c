@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 19:11:03 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/04 12:04:55 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 12:59:46 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ft_print_strat(t_stats *totebag)
 
 }
 
-void	ft_print_bench(t_stack *backpack, t_stats *totebag)
+void	ft_print_bench(t_stats *totebag)
 {
 	if (totebag->bench_flag)
 	{
@@ -85,7 +85,6 @@ void	ft_print_bench(t_stack *backpack, t_stats *totebag)
 		ft_print("[bench] rra: %d rrb %d rrr %d\n",
 			totebag->rra, totebag->rrb, totebag->rrr);
 	}
-	ft_free_back_and_tote(backpack, totebag);
 }
 
 void	ft_print(char const *str, ...)

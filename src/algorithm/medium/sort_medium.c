@@ -62,7 +62,7 @@ void	process_chunk(t_stack *backpack, t_stats *totebag, t_c *chunk)
 	{
 		while (1)
 		{
-			pos = find_closest_elem(backpack, chunk);
+			pos = find_closest_chunk_element(backpack, chunk);
 			if (pos == -1)
 				break ;
 			push_to_b(backpack, totebag, pos);
