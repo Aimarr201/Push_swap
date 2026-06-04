@@ -6,56 +6,45 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 00:00:00 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/04 13:22:26 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 20:11:12 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_insert_pos(t_stack *backpack)
+void	smallest_to_b(t_stack *backpack, t_stats *totebag)
 {
+	int	position_of_smallest;
 	int	i;
+	int	smallest;
 
-	i = 0;
-	while (i < backpack->len_b)
+	while (backpack->len_a)
 	{
-		if (backpack->stack_a[0] > backpack->stack_b[i])
-			return (i);
-		i++;
-	}
-	return (backpack->len_b);
-}
-
-void	rotate_b_to_pos(t_stack *backpack, t_stats *totebag, int pos)
-{
-	int	steps;
-
-	if (pos == 0)
-		return ;
-	if (pos <= backpack->len_b / 2)
-	{
-		steps = pos;
-		while (steps-- > 0)
-			rb(backpack, totebag);
-	}
-	else
-	{
-		steps = backpack->len_b - pos;
-		while (steps-- > 0)
-			rrb(backpack, totebag);
-	}
-}
-
-void	push_all_to_b(t_stack *backpack, t_stats *totebag)
-{
-	int	pos;
-
-	while (backpack->len_a > 0)
-	{
-		pos = find_insert_pos(backpack);
-		rotate_b_to_pos(backpack, totebag, pos);
+		i = 0;
+		position_of_smallest = 0;
+		smallest = backpack->stack_a[0];
+		while (i < backpack->len_a)
+		{
+			if (backpack->stack_a[i] < smallest)
+			{
+				position_of_smallest = i;
+				smallest = backpack->stack_a[i];
+			}
+			i++;
+		}
+		while (position_of_smallest > 0)
+		{
+			ra(backpack, totebag);
+			position_of_smallest--;
+		}
 		pb(backpack, totebag);
 	}
+}
+
+void	comeback_to_a(t_stack *backpack, t_stats *totebag)
+{
+	while (backpack->len_b)
+		pa(backpack, totebag);
 }
 
 void	algorithm_simple(t_stack *backpack, t_stats *totebag)
@@ -64,7 +53,8 @@ void	algorithm_simple(t_stack *backpack, t_stats *totebag)
 		return ;
 	if (backpack->len_a <= 1)
 		return ;
-	push_all_to_b(backpack, totebag);
+	smallest_to_b(backpack, totebag);
+	comeback_to_a(backpack, totebag);
 	while (backpack->len_b > 0)
 		pa(backpack, totebag);
 }

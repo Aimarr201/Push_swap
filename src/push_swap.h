@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 19:35:19 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/04 13:00:06 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 20:10:44 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,10 +116,9 @@ void	ft_print_strat(t_stats *totebag);
 void	ft_print(char const *str, ...);
 void	ft_printnbr(int nbr, int is_last);
 
-/*sort_medium.c*/
-int		find_insert_pos(t_stack *backpack);
-void	rotate_b_to_pos(t_stack *backpack, t_stats *totebag, int pos);
-void	push_all_to_b(t_stack *backpack, t_stats *totebag);
+/*sort_simple.c*/
+void	smallest_to_b(t_stack *backpack, t_stats *totebag);
+void	comeback_to_a(t_stack *backpack, t_stats *totebag);
 void	algorithm_simple(t_stack *backpack, t_stats *totebag);
 
 /*sort_medium.c*/
