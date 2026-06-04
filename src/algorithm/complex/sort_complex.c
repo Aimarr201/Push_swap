@@ -55,5 +55,5 @@ void	algorithm_complex(t_stack *backpack, t_stats *totebag)
 	count_bits_needed(rdx);
 	radix_sort_by_bits(backpack, totebag, rdx);
 	free(rdx);
-	ft_print_bench(backpack, totebag);
+	return ;
 }
