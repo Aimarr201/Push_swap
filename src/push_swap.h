@@ -108,7 +108,14 @@ void	parse_args(int argc, char **argv, t_stack *backpack, t_stats *totebag);
 void	ft_validate_flag(t_stats *totebag, int start, char **argv);
 
 /* dispatch_adaptative.c */
+void	sort_two(t_stack *backpack, t_stats *totebag);
+void	sort_three(t_stack *backpack, t_stats *totebag);
+int	find_min_pos(t_stack *backpack);
+void	move_min_to_top(t_stack *backpack, t_stats *totebag, int pos);
 void	dispatch_adaptative(t_stack *backpack, t_stats *totebag);
+
+/*sort_five.c*/
+void	sort_five(t_stack *backpack, t_stats *totebag);
 
 /* print_bench.c */
 void	ft_print_bench(t_stats *totebag);
