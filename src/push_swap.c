@@ -6,11 +6,28 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 18:15:13 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/04 20:15:50 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 20:42:54 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	launch_algorithm(t_stack *backpack, t_stats *totebag)
+{
+	if (totebag->algorithm_flag)
+	{
+		if (totebag->algorithm_flag == 1)
+			algorithm_simple(backpack, totebag);
+		else if (totebag->algorithm_flag == 2)
+			algorithm_medium(backpack, totebag);
+		else if (totebag->algorithm_flag == 3)
+			algorithm_complex(backpack, totebag);
+		else
+			dispatch_adaptative(backpack, totebag);
+	}
+	else
+		dispatch_adaptative(backpack, totebag);
+}
 
 void	ft_validate_flag(t_stats *totebag, int start, char **argv)
 {
@@ -76,17 +93,7 @@ int	main(int argc, char *argv[])
 		ft_error();
 	parse_args(argc, argv, backpack, totebag);
 	compute_disorder(backpack, totebag);
-	if (totebag->algorithm_flag)
-	{
-		if (totebag->algorithm_flag == 1)
-			algorithm_simple(backpack, totebag);
-		else if (totebag->algorithm_flag == 2)
-			algorithm_medium(backpack, totebag);
-		else if (totebag->algorithm_flag == 3)
-			algorithm_complex(backpack, totebag);
-	}
-	else
-		dispatch_adaptative(backpack, totebag);
+	launch_algorithm(backpack, totebag);
 	ft_print_bench(totebag);
 	ft_free_back_and_tote(backpack, totebag);
 }

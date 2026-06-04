@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 19:35:19 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/04 20:19:31 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 20:41:14 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void	init_totebag(t_stats *totebag);
 void	compute_disorder(t_stack *backpack, t_stats *totebag);
 
 /* push_swap.c */
+void	launch_algorithm(t_stack *backpack, t_stats *totebag);
 int		main(int argc, char *argv[]);
 void	parse_args(int argc, char **argv, t_stack *backpack, t_stats *totebag);
 void	ft_validate_flag(t_stats *totebag, int start, char **argv);
