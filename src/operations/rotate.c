@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 17:21:39 by luciamar          #+#    #+#             */
-/*   Updated: 2026/06/02 19:20:08 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 12:09:16 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ static void	rotate(int *stack, int len)
 
 void	ra(t_stack *backpack, t_stats *totebag)
 {
-	int	tmp;
-	int	i;
-
 	if (backpack->len_a < 2)
 		return;
 	rotate(backpack->stack_a, backpack->len_a);
@@ -42,9 +39,6 @@ void	ra(t_stack *backpack, t_stats *totebag)
 
 void	rb(t_stack *backpack, t_stats *totebag)
 {
-	int	tmp;
-	int	i;
-
 	if (backpack->len_b < 2)
 		return;
 	rotate(backpack->stack_b, backpack->len_b);
