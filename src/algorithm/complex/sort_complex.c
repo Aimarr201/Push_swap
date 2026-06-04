@@ -47,6 +47,8 @@ void	algorithm_complex(t_stack *backpack, t_stats *totebag)
 {
 	t_r	*rdx;
 
+	if (!totebag->disorder)
+		return;
 	rdx = malloc(sizeof(t_r));
 	if (!rdx)
 		ft_error_free(backpack);

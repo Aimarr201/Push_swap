@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 00:00:00 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/03 16:21:50 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 13:03:37 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	push_all_to_b(t_stack *backpack, t_stats *totebag)
 
 void	algorithm_simple(t_stack *backpack, t_stats *totebag)
 {
+	if (!totebag->disorder)
+		return;
 	if (backpack->len_a <= 1)
 		return ;
 	push_all_to_b(backpack, totebag);
