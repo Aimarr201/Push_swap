@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 00:00:00 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/02 19:46:36 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 12:04:15 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	push_to_b(t_stack *backpack, t_stats *totebag, int pos)
 	else
 	{
 		steps = backpack->len_a - pos;
-		while (steps -- > 0)
+		while (steps-- > 0)
 			rra(backpack, totebag);
 	}
 	pb(backpack, totebag);
@@ -40,43 +40,43 @@ void	empty_b_to_a(t_stack *backpack, t_stats *totebag)
 		max_pos = find_max_in_b(backpack);
 		if (max_pos <= backpack->len_b / 2)
 		{
-			while (max_pos -- > 0)
+			while (max_pos-- > 0)
 				rb(backpack, totebag);
 		}
 		else
 		{
 			steps = backpack->len_b - max_pos;
-			while (steps -- > 0)
+			while (steps-- > 0)
 				rrb(backpack, totebag);
 		}
 		pa(backpack, totebag);
 	}
 }
 
-void	process_chunk(t_stack *backpack, t_stats *totebag, t_c *chunck)
+void	process_chunk(t_stack *backpack, t_stats *totebag, t_c *chunk)
 {
 	int	pos;
 
-	chunck->how_many = 0;
-	while (chunck->how_many < chunck->max)
+	chunk->how_many = 0;
+	while (chunk->how_many < chunk->max)
 	{
 		while (1)
 		{
-			pos = find_closest_elem(backpack, chunck);
+			pos = find_closest_elem(backpack, chunk);
 			if (pos == -1)
 				break ;
 			push_to_b(backpack, totebag, pos);
 		}
-		chunck->how_many++;
+		chunk->how_many++;
 	}
 }
 
 void	algorithm_medium(t_stack *backpack, t_stats *totebag)
 {
-	t_c	*chunck;
+	t_c	*chunk;
 
-	chunck = malloc(sizeof(t_c));
-	if (!chunck)
+	chunk = malloc(sizeof(t_c));
+	if (!chunk)
 		ft_error_free(backpack);
 	if (backpack->len_a <= 1)
 	{
@@ -84,14 +84,14 @@ void	algorithm_medium(t_stack *backpack, t_stats *totebag)
 		return ;
 	}
 	replace_with_ranks(backpack);
-	chunck->size = ft_sqrt(backpack->len_a);
-	if (chunck->size == 0)
+	chunk->size = ft_sqrt(backpack->len_a);
+	if (chunk->size == 0)
 	{
 		free(chunk);
 		return ;
 	}
-	chunck->max = (backpack->len_a + chunck->size - 1) / chunck->size;
-	process_chunk(backpack, totebag, chunck);
+	chunk->max = (backpack->len_a + chunk->size - 1) / chunk->size;
+	process_chunk(backpack, totebag, chunk);
 	empty_b_to_a(backpack, totebag);
 	free(chunk);
 }
