@@ -181,8 +181,6 @@ make re      # fclean + make
 
 Algunas referencias que nos fueron útiles durante el desarrollo:
 
-- [Visualizador de push_swap](https://github.com/o-reo/push_swap_visualizer) — imprescindible para ver qué está haciendo tu algoritmo en tiempo real y entender por qué está mal cuando lo está.
-- [The Coding Train — Radix Sort](https://www.youtube.com/watch?v=LyRWppObda4) — buena explicación visual de cómo funciona el ordenamiento por bits.
 - [Explicación de Chunk Sort](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) — artículo que explica la lógica detrás del chunk sort aplicado a push_swap.
 - [42 Docs — Push_swap](https://harm-smits.github.io/42docs/projects/push_swap) — documentación no oficial pero muy completa sobre el proyecto.
 
