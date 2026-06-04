@@ -6,7 +6,7 @@
 /*   By: luciamar <luciamar@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 16:06:56 by luciamar          #+#    #+#             */
-/*   Updated: 2026/06/04 16:06:56 by luciamar         ###   ########.fr       */
+/*   Updated: 2026/06/04 20:11:38 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	radix_pass_one_bit(t_stack *backpack, t_stats *totebag, t_r *rdx)
 	while (count-- > 0)
 	{
 		if ((backpack->stack_a[0] >> rdx->bit_pos) & 1)
-			pb(backpack, totebag);
-		else
 			ra(backpack, totebag);
+		else
+			pb(backpack, totebag);
 	}
 }
 
