@@ -1,48 +1,59 @@
 #include "push_swap.h"
 
-int	count_bits_needed(int size)
+void	count_bits_needed(t_r *rdx)
 {
 	int	bits;
 	int	max_rank;
 
 	bits = 0;
-	max_rank = size - 1;
+	max_rank = rdx->size - 1;
 	while ((1<< bits) <= max_rank)
 		bits++;
-	return (bits);
+	rdx->total_bits = bits;
 }
 
-void	radix_pass_one_bit(t_stack *backpack, t_stats *totebag, int bit_pos, int size)
+void	radix_pass_one_bit(t_stack *backpack, t_stats *totebag, t_r *rdx)
 {
-	while (size-- > 0)
+	int	count;
+
+	count = backpack->len_a;
+	while (count-- > 0)
 	{
-		if ((backpack->stack_a[0] >> bit_pos) & 1)
+		if ((backpack->stack_a[0] >> rdx->bit_pos) & 1)
 			pb(backpack, totebag);
 		else
 			ra(backpack, totebag);
 	}
 }
 
-void	radix_sort_by_bits(t_stack *backpack, t_stats *totebag, int total_bits, int size)
+void	flush_b_to_a(t_stack *backpack, t_stats *totebag)
 {
-	int	bit_pos;
+	while (backpack->len_b > 0)
+		pa(backpack, totebag);
+}
 
-	bit_pos = 0;
-	while (bit_pos < total_bits)
+void	radix_sort_by_bits(t_stack *backpack, t_stats *totebag, t_r *rdx)
+{
+	rdx->bit_pos = 0;
+	while (rdx->bit_pos < rdx->total_bits)
 	{
-		radix_pass_one_bit(backpack, totebag, bit_pos, size);
+		radix_pass_one_bit(backpack, totebag, rdx);
 		flush_b_to_a(backpack, totebag);
-		bit_pos++;
+		rdx->bit_pos++;
 	}
 }
 
 void	algorithm_complex(t_stack *backpack, t_stats *totebag)
 {
-	int	total_bits;
-	int size;
+	t_r	*rdx;
 
+	rdx = malloc(sizeof(t_r));
+	if (!rdx)
+		ft_error_free(backpack);
 	replace_with_ranks(backpack);
-	sie = backpack->len_a;
-	total_bits = count_bits_needed(size);
-	radix_sort_by_bits(backpack, totebag, total_bits, size);
+	rdx->size = backpack->len_a;
+	count_bits_needed(rdx);
+	radix_sort_by_bits(backpack, totebag, rdx);
+	free(rdx);
+	ft_print_bench(backpack, totebag);
 }
