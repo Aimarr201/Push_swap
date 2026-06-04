@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 17:47:15 by luciamar          #+#    #+#             */
-/*   Updated: 2026/06/01 18:59:25 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 21:25:07 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,19 @@
 
 void	dispatch_adaptative(t_stack *backpack, t_stats *totebag)
 {
-	if (totebag->disorder < 0.2)
-		algorithm_simple(backpack, totebag);
-	else if (totebag->disorder < 0.5)
-		algorithm_medium(backpack, totebag);
+	if (backpack->len_a == 2)
+		sort_tho(backpack, totebag);
+	else if (backpack->len_a == 3)
+		sort_three(backpack, totebag);
+	else if (backpack->len_a <= 5)
+		sort_five(backpack, totebag);
 	else
-		algorithm_complex(backpack, totebag);
+	{
+		if (totebag->disorder < 0.2)
+			algorithm_simple(backpack, totebag);
+		else if (totebag->disorder < 0.5)
+			algorithm_medium(backpack, totebag);
+		else
+			algorithm_complex(backpack, totebag);
+	}
 }
