@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 17:47:15 by luciamar          #+#    #+#             */
-/*   Updated: 2026/06/04 21:25:07 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 21:59:35 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,44 +43,6 @@ void	sort_three(t_stack *backpack, t_stats *totebag)
 	}
 	else if (top < mid && top > bot)
 		rra(backpack, totebag);
-}
-
-int	find_min_pos(t_stack *backpack)
-{
-	int	min_val;
-	int	pos;
-	int	i;
-
-	min_val = backpack->stack_a[0];
-	pos = 0;
-	i = 1;
-	while (i < backpack->len_a)
-	{
-		if (backpack->stack_a[i] < min_val)
-		{
-			min_val = backpack->stack_a[i];
-			pos = i;
-		}
-		i++;
-	}
-	return (pos);
-}
-
-void	move_min_to_top(t_stack *backpack, t_stats *totebag, int pos)
-{
-	int	min_val;
-
-	min_val = backpack->stack_a[pos];
-	if (pos <= backpack->len_a / 2)
-	{
-		while (backpack->stack_a[0] != min_val)
-			ra(backpack, totebag);
-	}
-	else
-	{
-		while (backpack->stack_a[0] != min_val)
-			rra(backpack, totebag);
-	}
 }
 
 void	dispatch_adaptative(t_stack *backpack, t_stats *totebag)

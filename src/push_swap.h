@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 19:35:19 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/04 20:41:14 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 22:51:15 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,8 +110,6 @@ void	ft_validate_flag(t_stats *totebag, int start, char **argv);
 /* dispatch_adaptative.c */
 void	sort_two(t_stack *backpack, t_stats *totebag);
 void	sort_three(t_stack *backpack, t_stats *totebag);
-int	find_min_pos(t_stack *backpack);
-void	move_min_to_top(t_stack *backpack, t_stats *totebag, int pos);
 void	dispatch_adaptative(t_stack *backpack, t_stats *totebag);
 
 /*sort_five.c*/

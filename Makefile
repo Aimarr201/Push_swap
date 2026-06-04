@@ -6,7 +6,7 @@
 #    By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/29 16:50:19 by amendibi          #+#    #+#              #
-#    Updated: 2026/06/04 12:39:52 by amendibi         ###   ########.fr        #
+#    Updated: 2026/06/04 22:10:49 by amendibi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ CFLAGS = -Wall -Werror -Wextra -I src
 SRCS = \
 	src/push_swap.c \
 	src/algorithm/dispatch_adaptative.c \
+	src/algorithm/sort_five.c \
 	src/algorithm/complex/sort_complex.c \
 	src/algorithm/medium/sort_medium_utils.c \
 	src/algorithm/medium/sort_medium.c \
@@ -35,11 +36,13 @@ SRCS = \
 
 OBJS = $(SRCS:.c=.o)
 
+HEADERS=./src/push_swap.h
+
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(HEADERS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.c
