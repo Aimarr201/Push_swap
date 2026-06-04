@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 19:35:19 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/03 19:55:06 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 12:04:15 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,12 @@ typedef struct s_chunk
 	int	how_many;
 }		t_c;
 
+typedef struct s_radix
+{
+	int	size;
+	int	bit_pos;
+	int	total_bits;
+}		t_r;
 
 /* push.c */
 void	pa(t_stack *backpack, t_stats *totebag);
@@ -86,7 +92,7 @@ void	ft_isnum(char *str);
 void	ft_has_duplicates(t_stack *backpack);
 
 /* atoi.c */
-int	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 
 /* init.c */
 void	init_back(t_stack *backpack, int size, int i, int argc, char **argv);
@@ -110,13 +116,27 @@ void	ft_print_strat(t_stats *totebag);
 void	ft_print(char const *str, ...);
 void	ft_printnbr(int nbr, int is_last);
 
+/*sort_medium.c*/
+int		find_insert_pos(t_stack *backpack);
+void	rotate_b_to_pos(t_stack *backpack, t_stats *totebag, int pos);
+void	push_all_to_b(t_stack *backpack, t_stats *totebag);
+void	algorithm_simple(t_stack *backpack, t_stats *totebag);
+
+/*sort_medium.c*/
+void	push_to_b(t_stack *backpack, t_stats *totebag, int pos);
+void	empty_b_to_a(t_stack *backpack, t_stats *totebag);
+void	process_chunk(t_stack *backpack, t_stats *totebag, t_c *chunk);
+void	algorithm_medium(t_stack *backpack, t_stats *totebag);
+
 /* sort_medium_utils.c */
-int	ft_sqrt(int nb);
+int		ft_sqrt(int nb);
 void	replace_with_ranks(t_stack *backpack);
-int	find_closest_chunck_elem(t_stack *backpack, int chunck, int chunck_size);
+int		find_closest_chunk_elem(t_stack *backpack, int chunk, int chunk_size);
 
 /*sort_complex.c*/
-int	count_bits_needed(int size);
-
+int		count_bits_needed(int size);
+void	radix_pass_one_bit(t_stack *backpack, t_stats *totebag, int bit_pos, int size);
+void	push_all_to_b(t_stack *backpack, t_stats *totebag);
+void	algorithm_simple(t_stack *backpack, t_stats *totebag);
 
 #endif
