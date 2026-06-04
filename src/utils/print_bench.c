@@ -6,7 +6,7 @@
 /*   By: amendibi <amendibi@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 19:11:03 by amendibi          #+#    #+#             */
-/*   Updated: 2026/06/03 16:20:02 by amendibi         ###   ########.fr       */
+/*   Updated: 2026/06/04 12:04:55 by amendibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,22 @@ void	ft_print_strat(t_stats *totebag)
 {
 	ft_print("[bench] strategy: ");
 	if (totebag->algorithm_flag == 1)
-		ft_print("Simple");
+	{
+		ft_print("Simple / O(n²)\n");
+		return ;
+	}
 	else if (totebag->algorithm_flag == 2)
-		ft_print("Medium");
+	{
+		ft_print("Medium / O(n√n)\n");
+		return ;
+	}
 	else if (totebag->algorithm_flag == 3)
-	ft_print("Complex");
+	{
+		ft_print("Complex / O(nlogn)\n");
+		return ;
+	}
+	else if (totebag->algorithm_flag == 0 || totebag->algorithm_flag == 4)
+		ft_print("Adaptive");
 	if (totebag->disorder < 0.2)
 		ft_print(" / O(n²)\n");
 	else if (totebag->disorder < 0.5)
@@ -75,7 +86,6 @@ void	ft_print_bench(t_stack *backpack, t_stats *totebag)
 			totebag->rra, totebag->rrb, totebag->rrr);
 	}
 	ft_free_back_and_tote(backpack, totebag);
-	exit (0);
 }
 
 void	ft_print(char const *str, ...)
@@ -105,8 +115,9 @@ void	ft_print(char const *str, ...)
 
 void	ft_printnbr(int nbr, int is_last)
 {
-	int	divisor;
-	int	width;
+	int		divisor;
+	int		width;
+	char	c;
 
 	divisor = 1;
 	while (divisor <= nbr / 10)
@@ -114,7 +125,8 @@ void	ft_printnbr(int nbr, int is_last)
 	width = 0;
 	while (divisor >= 1)
 	{
-		write(2, (char)((nbr / divisor) % 10) + '0', 1);
+		c = ((nbr / divisor) % 10) + '0';
+		write(2, &c, 1);
 		divisor /= 10;
 		width++;
 	}
