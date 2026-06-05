@@ -98,9 +98,9 @@ void	ft_print(char const *str, ...)
 		if (str[i] == '%' && str[i + 1] == 'd')
 		{
 			if (str[i - 5] == 'r')
-				ft_printnbr(va_arg(list, int), 1);
+				ft_printnbr(va_arg(list, int), 1, str[i + 2] == '\n');
 			else
-				ft_printnbr(va_arg(list, int), 0);
+				ft_printnbr(va_arg(list, int), 0, str[i + 2] == '\n');
 			i++;
 		}
 		else
@@ -110,7 +110,7 @@ void	ft_print(char const *str, ...)
 	va_end(list);
 }
 
-void	ft_printnbr(int nbr, int reverse)
+void	ft_printnbr(int nbr, int reverse, int no_width)
 {
 	int		divisor;
 	int		width;
@@ -129,9 +129,12 @@ void	ft_printnbr(int nbr, int reverse)
 		divisor /= 10;
 		width++;
 	}
-	while (width < 6)
+	if (!no_width)
 	{
-		write(2, " ", 1);
-		width++;
+		while (width < 6)
+		{
+			write(2, " ", 1);
+			width++;
+		}
 	}
 }

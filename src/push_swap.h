@@ -122,7 +122,7 @@ void	ft_print_bench(t_stats *totebag);
 void	ft_print_disorder(float disorder);
 void	ft_print_strat(t_stats *totebag);
 void	ft_print(char const *str, ...);
-void	ft_printnbr(int nbr, int reverse);
+void	ft_printnbr(int nbr, int reverse, int no_width);
 
 /*sort_simple.c*/
 void	smallest_to_b(t_stack *backpack, t_stats *totebag);
