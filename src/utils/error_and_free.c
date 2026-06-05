@@ -33,14 +33,20 @@ void	ft_free_back_and_tote(t_stack *backpack, t_stats *totebag)
 	free(totebag);
 }
 
+void	ft_error_free(t_stack *backpack, t_stats *totebag)
+{
+	ft_free_back_and_tote(backpack, totebag);
+	ft_error();
+}
+
+void	ft_error_free_back(t_stack *backpack)
+{
+	ft_free_arrays(backpack);
+	ft_error();
+}
+
 void	ft_error(void)
 {
 	write(2, "Error\n", 6);
 	exit (1);
-}
-
-void	ft_error_free(t_stack *backpack)
-{
-	ft_free_arrays(backpack);
-	ft_error();
 }

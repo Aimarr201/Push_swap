@@ -29,32 +29,32 @@ void	launch_algorithm(t_stack *backpack, t_stats *totebag)
 		dispatch_adaptative(backpack, totebag);
 }
 
-void	ft_validate_flag(t_stats *totebag, int start, char **argv)
+void	ft_validate_flag(t_stack *back, t_stats *tote, int start, char **argv)
 {
 	if (ft_strcmp(argv[start], "--simple")
 		|| ft_strcmp(argv[start], "--medium")
 		|| ft_strcmp(argv[start], "--complex")
 		|| ft_strcmp(argv[start], "--adaptive"))
 	{
-		if (totebag->algorithm_flag != 0)
-			ft_error();
+		if (tote->algorithm_flag != 0)
+			ft_error_free(back, tote);
 		if (ft_strcmp(argv[start], "--simple"))
-			totebag->algorithm_flag = 1;
+			tote->algorithm_flag = 1;
 		else if (ft_strcmp(argv[start], "--medium"))
-			totebag->algorithm_flag = 2;
+			tote->algorithm_flag = 2;
 		else if (ft_strcmp(argv[start], "--complex"))
-			totebag->algorithm_flag = 3;
+			tote->algorithm_flag = 3;
 		else
-			totebag->algorithm_flag = 4;
+			tote->algorithm_flag = 4;
 	}
 	else if (ft_strcmp(argv[start], "--bench"))
 	{
-		if (totebag->bench_flag != 0)
-			ft_error();
-		totebag->bench_flag = 1;
+		if (tote->bench_flag != 0)
+			ft_error_free(back, tote);
+		tote->bench_flag = 1;
 	}
 	else
-		ft_error();
+		ft_error_free(back, tote);
 }
 
 void	parse_args(int argc, char **argv, t_stack *backpack, t_stats *totebag)
@@ -66,15 +66,15 @@ void	parse_args(int argc, char **argv, t_stack *backpack, t_stats *totebag)
 	start = 1;
 	while (argv[start][0] == '-' && argv[start][1] == '-')
 	{
-		ft_validate_flag(totebag, start, argv);
+		ft_validate_flag(backpack, totebag, start, argv);
 		start++;
 	}
 	if (argc < start + 1)
-		ft_error();
+		ft_error_free(backpack, totebag);
 	i = start;
 	while (i < argc)
 	{
-		ft_isnum(argv[i]);
+		ft_isnum(backpack, totebag, argv[i]);
 		i++;
 	}
 	init_back(backpack, start, argc, argv);

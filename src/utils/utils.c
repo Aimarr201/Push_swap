@@ -40,23 +40,23 @@ void	ft_putstr(char *str)
 	write(1, str, i);
 }
 
-void	ft_isnum(char *str)
+void	ft_isnum(t_stack *backpack, t_stats *totebag, char *str)
 {
 	char	*tmp;
 
 	if (!str || !*str)
-		ft_error();
+		ft_error_free(backpack, totebag);
 	tmp = str;
 	if ((*tmp == '-' || *tmp == '+'))
 	{
 		if (*(tmp + 1) < '0' || *(tmp + 1) > '9')
-			ft_error();
+			ft_error_free(backpack, totebag);
 		tmp++;
 	}
 	while (*tmp)
 	{
 		if (*tmp < '0' || *tmp > '9')
-			ft_error();
+			ft_error_free(backpack, totebag);
 		tmp++;
 	}
 }
@@ -73,7 +73,7 @@ void	ft_has_duplicates(t_stack *backpack)
 		while (j < backpack->len_a)
 		{
 			if (backpack->stack_a[i] == backpack->stack_a[j])
-				ft_error_free(backpack);
+				ft_error_free_back(backpack);
 			j++;
 		}
 		i++;

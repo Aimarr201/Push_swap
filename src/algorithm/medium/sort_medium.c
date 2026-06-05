@@ -79,7 +79,7 @@ void	algorithm_medium(t_stack *backpack, t_stats *totebag)
 		return ;
 	chunk = malloc(sizeof(t_c));
 	if (!chunk)
-		ft_error_free(backpack);
+		ft_error_free(backpack, totebag);
 	if (backpack->len_a <= 1)
 	{
 		free(chunk);

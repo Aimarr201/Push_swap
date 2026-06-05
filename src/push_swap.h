@@ -82,17 +82,19 @@ void	rrr(t_stack *backpack, t_stats *totebag);
 /* error_and_free.c */
 void	ft_free_arrays(t_stack *backpack);
 void	ft_free_back_and_tote(t_stack *backpack, t_stats *totebag);
+void	ft_error_free(t_stack *backpack, t_stats *totebag);
+void	ft_error_free_back(t_stack *backpack);
 void	ft_error(void);
-void	ft_error_free(t_stack *backpack);
 
 /* utils.c */
 int		ft_strcmp(const char *s1, const char *s2);
 void	ft_putstr(char *str);
-void	ft_isnum(char *str);
+void	ft_isnum(t_stack *backpack, t_stats *totebag, char *str);
 void	ft_has_duplicates(t_stack *backpack);
 
 /* atoi.c */
-int		ft_atoi(const char *str);
+void	check_range(long num, const char *str, int negative, t_stack *backpack);
+int		ft_atoi(const char *str, t_stack *backpack);
 
 /* init.c */
 void	init_back(t_stack *backpack, int start, int argc, char **argv);
@@ -103,9 +105,9 @@ void	compute_disorder(t_stack *backpack, t_stats *totebag);
 
 /* push_swap.c */
 void	launch_algorithm(t_stack *backpack, t_stats *totebag);
-int		main(int argc, char *argv[]);
+void	ft_validate_flag(t_stack *back, t_stats *tote, int start, char **argv);
 void	parse_args(int argc, char **argv, t_stack *backpack, t_stats *totebag);
-void	ft_validate_flag(t_stats *totebag, int start, char **argv);
+int		main(int argc, char *argv[]);
 
 /* dispatch_adaptative.c */
 void	sort_two(t_stack *backpack, t_stats *totebag);

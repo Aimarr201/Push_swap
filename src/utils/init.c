@@ -21,13 +21,13 @@ void	init_back(t_stack *backpack, int start, int argc, char **argv)
 	backpack->stack_a = malloc(sizeof(int) * size);
 	backpack->stack_b = malloc(sizeof(int) * size);
 	if (!backpack->stack_a || !backpack->stack_b)
-		ft_error_free(backpack);
+		ft_error();
 	backpack->len_a = 0;
 	backpack->len_b = 0;
 	i = start;
 	while (i < argc)
 	{
-		backpack->stack_a[backpack->len_a] = (int)ft_atoi(argv[i]);
+		backpack->stack_a[backpack->len_a] = (int)ft_atoi(argv[i], backpack);
 		backpack->len_a++;
 		i++;
 	}

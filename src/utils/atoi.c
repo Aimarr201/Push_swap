@@ -12,25 +12,25 @@
 
 #include "push_swap.h"
 
-static void	check_if_is_in_range(long num, const char *str, int negative)
+void	check_range(long num, const char *str, int negative, t_stack *backpack)
 {
 	if (negative)
 	{
 		if (num > INT_MAX / 10)
-			ft_error();
+			ft_error_free_back(backpack);
 		if (num == INT_MAX / 10 && (*str - 48) > 8)
-			ft_error();
+			ft_error_free_back(backpack);
 	}
 	else
 	{
 		if (num > INT_MAX / 10)
-			ft_error();
+			ft_error_free_back(backpack);
 		if (num == INT_MAX / 10 && (*str - 48) > 7)
-			ft_error();
+			ft_error_free_back(backpack);
 	}
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, t_stack *backpack)
 {
 	long	num;
 	int		negative;
@@ -46,10 +46,10 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	if (*str < '0' || *str > '9')
-		ft_error();
+		ft_error_free_back(backpack);
 	while (*str >= '0' && *str <= '9')
 	{
-		check_if_is_in_range(num, str, negative);
+		check_range(num, str, negative, backpack);
 		num = num * 10 + *str - 48;
 		str++;
 	}

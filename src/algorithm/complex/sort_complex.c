@@ -63,7 +63,7 @@ void	algorithm_complex(t_stack *backpack, t_stats *totebag)
 		return ;
 	rdx = malloc(sizeof(t_r));
 	if (!rdx)
-		ft_error_free(backpack);
+		ft_error_free(backpack, totebag);
 	replace_with_ranks(backpack);
 	rdx->size = backpack->len_a;
 	count_bits_needed(rdx);
