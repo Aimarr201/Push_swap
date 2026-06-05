@@ -64,7 +64,7 @@ void	parse_args(int argc, char **argv, t_stack *backpack, t_stats *totebag)
 
 	init_totebag(totebag);
 	start = 1;
-	while (argv[start][0] == '-' && argv[start][1] == '-')
+	while (argv[start] && argv[start][0] == '-' && argv[start][1] == '-')
 	{
 		ft_validate_flag(backpack, totebag, start, argv);
 		start++;
@@ -91,6 +91,8 @@ int	main(int argc, char *argv[])
 	totebag = malloc(sizeof(t_stats));
 	if (!backpack || !totebag)
 		ft_error();
+	backpack->stack_a = NULL;
+	backpack->stack_b = NULL;
 	parse_args(argc, argv, backpack, totebag);
 	compute_disorder(backpack, totebag);
 	launch_algorithm(backpack, totebag);
